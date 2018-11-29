@@ -1,0 +1,60 @@
+======================================== INITIAL LOAD ===============================================
+
+SELECT buku.`nama_buku`, member.`nama_member`, YEAR(peminjaman.`tgl_pinjam`) AS tahun, MONTHNAME(peminjaman.`tgl_pinjam`) AS bulan, 
+COUNT(id_buku) AS jumlah
+FROM detail_peminjaman
+INNER JOIN peminjaman ON detail_peminjaman.`id_peminjaman`=peminjaman.`id`
+INNER JOIN detail_buku ON detail_peminjaman.`id_detil_buku`=detail_buku.`id`
+INNER JOIN member ON peminjaman.`id_member`=member.`id`
+INNER JOIN buku ON detail_buku.`id_buku`=buku.`id`
+GROUP BY nama_member, bulan, nama_buku
+ORDER BY MONTH(peminjaman.`tgl_pinjam`);
+
+//CEK TANGGAL MULAI - AKHIR DATA
+SELECT tgl_pinjam AS tanggal_mulai, 
+(
+	SELECT tgl_pinjam
+	FROM peminjaman
+	ORDER BY tgl_pinjam DESC
+	LIMIT 1
+) AS tanggal_akhir
+FROM peminjaman
+ORDER BY tanggal_mulai ASC
+LIMIT 1;
+
+//CEK TANGGAL AKHIR DATA DI HISTORY
+SELECT tanggal_akhir FROM history_etl
+ORDER BY tanggal_akhir DESC
+LIMIT 1;
+
+
+==================================================== UPDATE LOAD ==========================================================
+
+SELECT buku.`nama_buku`, member.`nama_member`, YEAR(peminjaman.`tgl_pinjam`) AS tahun, MONTHNAME(peminjaman.`tgl_pinjam`) AS bulan, 
+COUNT(id_buku) AS jumlah
+FROM detail_peminjaman
+INNER JOIN peminjaman ON detail_peminjaman.`id_peminjaman`=peminjaman.`id`
+INNER JOIN detail_buku ON detail_peminjaman.`id_detil_buku`=detail_buku.`id`
+INNER JOIN member ON peminjaman.`id_member`=member.`id`
+INNER JOIN buku ON detail_buku.`id_buku`=buku.`id`
+WHERE tgl_pinjam >= $VARIABEL_TANGGAL_AKHIR_DI_HISTORY
+GROUP BY nama_member, bulan, nama_buku
+ORDER BY MONTH(peminjaman.`tgl_pinjam`);
+
+//CEK TANGGAL MULAI - AKHIR DATA, BERDASARKAN HISTORY TERAKHIR
+SELECT tgl_pinjam AS tanggal_mulai, 
+(
+	SELECT tgl_pinjam
+	FROM peminjaman
+	ORDER BY tgl_pinjam DESC
+	LIMIT 1
+) AS tanggal_akhir
+FROM peminjaman
+WHERE tgl_pinjam >= $VARIABEL_TANGGAL_AKHIR_DI_HISTORY
+ORDER BY tanggal_mulai ASC
+LIMIT 1;
+
+//CEK TANGGAL AKHIR DATA DI HISTORY
+SELECT tanggal_akhir FROM history_etl
+ORDER BY tanggal_akhir DESC
+LIMIT 1;
