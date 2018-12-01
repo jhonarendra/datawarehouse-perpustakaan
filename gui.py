@@ -32,12 +32,17 @@ show_data_tabel_etl = ('''SELECT nama_tabel, start_row, end_row, `status`, tgl_p
 INNER JOIN tb_tabel ON history_etl.`id_tabel` = tb_tabel.`id`
 ORDER BY history_etl.`id` ASC''')
 
+mysql_combobox_perpus = ('''SELECT nama_perpustakaan FROM dim_perpustakaan''')
+
+mysql_combobox_member = ('''SELECT nama_member FROM dim_member''')
+
+mysql_combobox_tahun = ('''SELECT tahun FROM fact_peminjaman_bulan GROUP BY tahun''')
 
 
 class Ui_MainWindow(object):
 
     def loadData(self):
-        result = self.queries_etl.show_etl(show_data_tabel_etl)
+        result = self.queries_etl.mysql_db_etl(show_data_tabel_etl)
         self.tableWidget.setRowCount(0)
         for row_number, row_data in enumerate(result):
             self.tableWidget.insertRow(row_number)
@@ -50,7 +55,24 @@ class Ui_MainWindow(object):
                 header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
                 header.setSectionResizeMode(3, QtWidgets.QHeaderView.Stretch)
                 header.setSectionResizeMode(4, QtWidgets.QHeaderView.Stretch)
-        cursor2.close()
+        # cursor2.close()
+    def comboboxPerpustaka(self):
+        result = self.queries_etl.mysql_db_etl(mysql_combobox_perpus)
+        # print(result)
+        for i in range(0, len(result)):
+            # print(result[i][0])
+            self.comboPerpus.addItem(result[i][0])
+
+    def comboboxMember(self):
+        result = self.queries_etl.mysql_db_etl(mysql_combobox_member)
+        print(result)
+        for i in range(0, len(result)):
+            self.comboMember.addItem(result[i][0])
+    def comboboxTahun(self):
+        result = self.queries_etl.mysql_db_etl(mysql_combobox_tahun)
+        print(result)
+        for i in range(0, len(result)):
+            self.comboTahun.addItem(result[i][0])
 
     def setupUi(self, MainWindow):
         # conect file queries_etl
@@ -71,7 +93,6 @@ class Ui_MainWindow(object):
         # self.tableWidget.setHorizontalHeaderItem(1, QtWidgets.QTableWidgetItem("prbauba"))
         self.tableWidget.setRowCount(5)
         self.tableWidget.setColumnCount(5)
-        # self.loadData()
         self.tableWidget.setObjectName("tableWidget")
         self.buttonExtract = QtWidgets.QPushButton(self.tab)
         self.buttonExtract.setGeometry(QtCore.QRect(10, 550, 93, 28))
@@ -90,19 +111,15 @@ class Ui_MainWindow(object):
         self.comboPerpus = QtWidgets.QComboBox(self.tab_2)
         self.comboPerpus.setGeometry(QtCore.QRect(60, 170, 161, 31))
         self.comboPerpus.setObjectName("comboPerpus")
-        self.comboPerpus.addItem("")
-        self.comboPerpus.addItem("")
+        self.comboboxPerpustaka()
         self.comboMember = QtWidgets.QComboBox(self.tab_2)
         self.comboMember.setGeometry(QtCore.QRect(60, 290, 161, 31))
         self.comboMember.setObjectName("comboMember")
-        self.comboMember.addItem("")
-        self.comboMember.addItem("")
+        self.comboboxMember()
         self.comboTahun = QtWidgets.QComboBox(self.tab_2)
         self.comboTahun.setGeometry(QtCore.QRect(60, 390, 161, 31))
         self.comboTahun.setObjectName("comboTahun")
-        self.comboTahun.addItem("")
-        self.comboTahun.addItem("")
-        self.comboTahun.addItem("")
+        self.comboboxTahun()
         self.buttonLoad = QtWidgets.QPushButton(self.tab_2)
         self.buttonLoad.setGeometry(QtCore.QRect(60, 640, 131, 31))
         self.buttonLoad.setObjectName("buttonLoad")
@@ -120,6 +137,7 @@ class Ui_MainWindow(object):
         self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.buttonLoad.clicked.connect(self.selectData)
 
 
     def retranslateUi(self, MainWindow):
@@ -127,16 +145,16 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.buttonExtract.setText(_translate("MainWindow", "Extract Data"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Database"))
-        self.comboPerpus.setCurrentText(_translate("MainWindow", "Perpustakaan Bersama"))
-        self.comboPerpus.setItemText(0, _translate("MainWindow", "Perpustakaan Bersama"))
-        self.comboPerpus.setItemText(1, _translate("MainWindow", "Perpustakaan Jurusan"))
-        self.comboMember.setCurrentText(_translate("MainWindow", "Deva"))
-        self.comboMember.setItemText(0, _translate("MainWindow", "Deva"))
-        self.comboMember.setItemText(1, _translate("MainWindow", "Agung"))
-        self.comboTahun.setCurrentText(_translate("MainWindow", "2017"))
-        self.comboTahun.setItemText(0, _translate("MainWindow", "2017"))
-        self.comboTahun.setItemText(1, _translate("MainWindow", "2018"))
-        self.comboTahun.setItemText(2, _translate("MainWindow", "2019"))
+        self.comboPerpus.setCurrentText(_translate("MainWindow", "Pilih Perpustakaan"))
+        # self.comboPerpus.setItemText(0, _translate("MainWindow", "Perpustakaan Bersama"))
+        # self.comboPerpus.setItemText(1, _translate("MainWindow", "Perpustakaan Jurusan"))
+        # self.comboMember.setCurrentText(_translate("MainWindow", "Deva"))
+        # self.comboMember.setItemText(0, _translate("MainWindow", "Deva"))
+        # self.comboMember.setItemText(1, _translate("MainWindow", "Agung"))
+        # self.comboTahun.setCurrentText(_translate("MainWindow", "2017"))
+        # self.comboTahun.setItemText(0, _translate("MainWindow", "2017"))
+        # self.comboTahun.setItemText(1, _translate("MainWindow", "2018"))
+        # self.comboTahun.setItemText(2, _translate("MainWindow", "2019"))
         self.buttonLoad.setText(_translate("MainWindow", "Load Data"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Data Warehouse"))
 
@@ -147,12 +165,21 @@ class Ui_MainWindow(object):
         self.queries_etl.check_cabang_perpustakaan(mysql_check_perpustakaan)
         self.queries_etl.check_fact_peminjaman_bulan(mysql_check_peminjaman)
 
+    def selectData(self):
+        value_perpus = self.comboPerpus.currentIndex()
+        value_perpus += 1
+        value_member = self.comboMember.currentIndex()
+        value_member += 1
+        value_tahun = self.comboTahun.currentIndex()
+        value_tahun += 1
+        print(value_perpus,value_member,value_tahun)
+        # self.comboPerpus.itemData()
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
-    # ui.loadData()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

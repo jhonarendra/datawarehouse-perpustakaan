@@ -61,11 +61,12 @@ cursor2 = mysql_db2.cursor()
 
 class query:
 
-    def show_etl(self,data):
+    def mysql_db_etl(self,data):
         cursor2.execute(data)
         result = cursor2.fetchall()
 
         return (result)
+    # def comboPerpus(self,data):
 
     def check_member(self, data):
         cursor2.execute(data)
