@@ -1,14 +1,18 @@
 from database import *
-import json
 from datetime import datetime
 
 now = datetime.now()
 formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
-mysql_extract = ('''SELECT buku.id, buku.nama_buku , pengarang.nama_pengarang, penerbit.nama_penerbit FROM buku 
+
+
+#  SELECT TABEL
+mysql_select_member = ('''SELECT * FROM member''')
+mysql_select_buku = ('''SELECT buku.id, buku.nama_buku , pengarang.nama_pengarang, penerbit.nama_penerbit FROM buku 
                     INNER JOIN pengarang ON buku.id_pengarang= pengarang.id 
-                    INNER JOIN penerbit ON buku.id_penerbit = penerbit.id''')
-mysql_extract2 = ('''SELECT * FROM member''')
-mysql_extract3 = ('''
+                    INNER JOIN penerbit ON buku.id_penerbit = penerbit.id
+                    ORDER BY buku.id ASC''')
+mysql_select_perpustakaan = ('''SELECT * FROM cb_perpustakaan''')
+mysql_select_peminjaman = ('''
 SELECT buku.`id`, member.`id`, cb_perpustakaan.id, YEAR(peminjaman.`tgl_pinjam`) AS tahun, MONTHNAME(peminjaman.`tgl_pinjam`) AS bulan, 
                     COUNT(id_buku) AS jumlah
                     FROM detail_peminjaman
@@ -19,40 +23,9 @@ SELECT buku.`id`, member.`id`, cb_perpustakaan.id, YEAR(peminjaman.`tgl_pinjam`)
                     INNER JOIN cb_perpustakaan ON peminjaman.`id_perpustakaan`=cb_perpustakaan.`id`
                     GROUP BY nama_member, bulan, nama_buku
                     ORDER BY MONTH(peminjaman.`tgl_pinjam`);''')
-mysql_extract4 = ('''SELECT * FROM cb_perpustakaan''')
 
-mysql_extract_peminjaman = ('''SELECT * FROM peminjaman''')
-
-mysql_check_member =('''
-                    SELECT * FROM history_etl WHERE id_tabel = 5
-                    ORDER BY id DESC LIMIT 1
-''')
-mysql_check_buku = ('''
-                    SELECT * FROM history_etl WHERE id_tabel = 1
-                    ORDER BY id DESC LIMIT 1
-''')
-mysql_check_perpustakaan = ('''
-                    SELECT * FROM history_etl WHERE id_tabel = 2
-                    ORDER BY id DESC LIMIT 1
-''')
-
-mysql_check_peminjaman =('''
-                    SELECT * FROM history_etl WHERE id_tabel = 7
-                    ORDER BY id DESC LIMIT 1
-''')
-
-mysql_first_etl_member = ('''
-       SELECT id AS start_row, 
-        (
-         SELECT id
-         FROM dim_member
-         ORDER BY id DESC
-         LIMIT 1
-        ) AS end_row
-        FROM dim_member
-        ORDER BY start_row ASC
-        LIMIT 1; 
-''')
+######################################################
+#######################################################
 mysql_cek_etl_member =('''
         SELECT history_etl.`end_row` FROM history_etl WHERE id_tabel = 5
         ORDER BY id DESC
@@ -74,26 +47,34 @@ mysql_cek_etl_peminjaman = ('''
         LIMIT 1;
 ''')
 
-# mysql_cek_db_member = ('''
-#         SELECT * FROM member WHERE id > 9
-# ''')
+############################################################
+############################################################
 
-
+# khusus untuk fakta peminjaman
+mysql_extract_peminjaman = ('''SELECT * FROM peminjaman''')
+##################################
 
 # inisialisasi cursor database perpustakaan
 cursor = mysql_db.cursor()
 # inisialisasi cursor warehouse perpustaakan
 cursor2 = mysql_db2.cursor()
 
-class Query:
-    def check_member(data):
+class query:
+
+    def show_etl(self,data):
+        cursor2.execute(data)
+        result = cursor2.fetchall()
+
+        return (result)
+
+    def check_member(self, data):
         cursor2.execute(data)
         result = cursor2.fetchall()
         # print(len(result))
         if len(result) ==  0 :
             print("error")
             # insert ke tabel dimensi member di database Datawarehouse
-            cursor.execute(mysql_extract2)
+            cursor.execute(mysql_select_member)
             get_data = cursor.fetchall()
             print(get_data)
             lenght_add_member = len(get_data)
@@ -146,12 +127,12 @@ class Query:
                 mysql_db2.commit()
                 print("data sudah masuk ke histori")
 
-    def check_buku(data):
+    def check_buku(self,data):
         cursor2.execute(data)
         result = cursor2.fetchall()
         if len(result) == 0:
             print("Data Kosong")
-            cursor.execute(mysql_extract)
+            cursor.execute(mysql_select_buku)
             get_data = cursor.fetchall()
             print(get_data)
             lenght_add_buku = len(get_data)
@@ -160,6 +141,7 @@ class Query:
             # print(end_row_add_member)
             start_row_add_buku = get_data[0][0]
             # print(start_row_add_member)
+            print("APA ISISNYA",start_row_add_buku, end_row_add_buku)
             for i in get_data:
                 mysql_insert = (
                             "INSERT INTO dim_buku(id, nama_buku, nama_pengarang, nama_penerbit) VALUES (%d,'%s','%s','%s')" % (
@@ -180,6 +162,7 @@ class Query:
             cursor2.execute(mysql_cek_etl_buku)
             count_end_row = cursor2.fetchall()
             end_row_member = count_end_row[0][0]
+            print(end_row_member)
             mysql_cek_db_member = ("SELECT buku.id, buku.nama_buku , pengarang.nama_pengarang, penerbit.nama_penerbit "
                                    "FROM buku INNER JOIN pengarang ON buku.id_pengarang= pengarang.id INNER JOIN penerbit ON buku.id_penerbit = penerbit.id WHERE buku.id > %d" % (end_row_member))
             cursor.execute(mysql_cek_db_member)
@@ -191,7 +174,7 @@ class Query:
             else:
                 end_row_add_buku = get_data[lenght_add_buku - 1][0]
                 start_row_add_buku = get_data[0][0]
-                print(end_row_add_buku, start_row_add_buku)
+                print(start_row_add_buku, end_row_add_buku)
 
                 for i in get_data:
                     mysql_insert = (
@@ -208,13 +191,12 @@ class Query:
                 cursor2.execute(mysql_insert)
                 mysql_db2.commit()
                 print("data sudah masuk ke histori")
-
-    def check_cabang_perpustakaan(data):
+    def check_cabang_perpustakaan(self,data):
         cursor2.execute(data)
         result = cursor2.fetchall()
         if len(result) == 0:
             print("Data Kosong")
-            cursor.execute(mysql_extract4)
+            cursor.execute(mysql_select_perpustakaan)
             get_data = cursor.fetchall()
             print(get_data)
             lenght_add_perpustakaan = len(get_data)
@@ -270,24 +252,12 @@ class Query:
                 cursor2.execute(mysql_insert)
                 mysql_db2.commit()
                 print("data sudah masuk ke histori")
-
-    # def fact_peminjaman_bulan(data):
-    #     cursor.execute(data)
-    #     result = cursor.fetchall()
-    #     print(result)
-    #     cursor2 = mysql_db2.cursor()
-    #     for i in result:
-    #         mysql_insert = ("INSERT INTO fact_peminjaman_bulan ( id_dimBuku, id_dimMember, tahun, bulan,jumlah) VALUES (%d,%d,'%s','%s',%d)" % (i[0], i[1], i[2], i[3], i[4]))
-    #         cursor2.execute(mysql_insert)
-    #         mysql_db2.commit()
-    #     print("Fact Peminjaman Sukses")
-
-    def check_fact_peminjaman_bulan(data):
+    def check_fact_peminjaman_bulan(self,data):
         cursor2.execute(data)
         result = cursor2.fetchall()
         if len(result) == 0:
             print("Data Kosong")
-            cursor.execute(mysql_extract3)
+            cursor.execute(mysql_select_peminjaman)
             get_data = cursor.fetchall() #mengambil data peminjaman yang akan di ETL
             print(get_data)
 
@@ -348,15 +318,3 @@ class Query:
                 cursor2.execute(mysql_insert)
                 mysql_db2.commit()
                 print("data sudah masuk ke histori")
-
-    if __name__ == '__main__':
-        check_member(mysql_check_member)
-        # check_buku(mysql_check_buku)
-        # check_cabang_perpustakaan(mysql_check_perpustakaan)
-        # check_fact_peminjaman_bulan(mysql_check_peminjaman)
-        # testing(mysql_first_etl_member)
-        # check_member(self, mysql_check_member)
-        # dim_buku(mysql_extract)
-        # dim_member(mysql_extract2)
-        # fact_peminjaman_bulan(mysql_extract3)
-
