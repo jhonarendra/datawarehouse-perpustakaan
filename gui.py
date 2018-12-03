@@ -65,12 +65,12 @@ class Ui_MainWindow(object):
 
     def comboboxMember(self):
         result = self.queries_etl.mysql_db_etl(mysql_combobox_member)
-        print(result)
+        # print(result)
         for i in range(0, len(result)):
             self.comboMember.addItem(result[i][0])
     def comboboxTahun(self):
         result = self.queries_etl.mysql_db_etl(mysql_combobox_tahun)
-        print(result)
+        # print(result)
         for i in range(0, len(result)):
             self.comboTahun.addItem(result[i][0])
 
@@ -106,8 +106,8 @@ class Ui_MainWindow(object):
         self.tableWidget_2 = QtWidgets.QTableWidget(self.tab_2)
         self.tableWidget_2.setGeometry(QtCore.QRect(280, 110, 811, 571))
         self.tableWidget_2.setObjectName("tableWidget_2")
-        self.tableWidget_2.setRowCount(5)
-        self.tableWidget_2.setColumnCount(5)
+        # self.tableWidget_2.setRowCount(5)
+        # self.tableWidget_2.setColumnCount(5)
         self.comboPerpus = QtWidgets.QComboBox(self.tab_2)
         self.comboPerpus.setGeometry(QtCore.QRect(60, 170, 161, 31))
         self.comboPerpus.setObjectName("comboPerpus")
@@ -158,6 +158,8 @@ class Ui_MainWindow(object):
         self.buttonLoad.setText(_translate("MainWindow", "Load Data"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Data Warehouse"))
 
+    # def getDataSQL(self):
+
 
     def extractData(self):
         self.queries_etl.check_member(mysql_check_member)
@@ -170,10 +172,49 @@ class Ui_MainWindow(object):
         value_perpus += 1
         value_member = self.comboMember.currentIndex()
         value_member += 1
-        value_tahun = self.comboTahun.currentIndex()
-        value_tahun += 1
-        print(value_perpus,value_member,value_tahun)
-        # self.comboPerpus.itemData()
+        value_tahun = self.comboTahun.currentText()
+        # value_tahun += 1
+        # print(value_perpus,value_member,value_tahun)
+
+        get_book_name = ("SELECT nama_buku FROM dim_member INNER JOIN fact_peminjaman_bulan ON dim_member.`id` = fact_peminjaman_bulan.`id_dimMember` INNER JOIN dim_buku ON fact_peminjaman_bulan.`id_dimBuku` = dim_buku.`id` WHERE dim_member.`id`='"+str(value_member)+"' AND tahun = '"+value_tahun+"' GROUP BY nama_buku;")
+        column_name = self.queries_etl.get_row_column(get_book_name)
+        # print(column_name)
+        get_month = ("SELECT bulan FROM dim_member INNER JOIN fact_peminjaman_bulan ON dim_member.`id` = fact_peminjaman_bulan.`id_dimMember` INNER JOIN dim_buku ON fact_peminjaman_bulan.`id_dimBuku` = dim_buku.`id` WHERE dim_member.`id`='"+str(value_member)+"' AND tahun = '"+value_tahun+"' GROUP BY bulan;")
+        row_name = self.queries_etl.get_row_column(get_month)
+
+        # print(row_name)
+
+        array_item_column = []
+        for x , item in enumerate(column_name):
+            # print(x)
+            # print("ISI COLUMN : ",item[0])
+
+            array_item_column.append(item[0])
+            self.tableWidget_2.insertColumn(x)
+            header = self.tableWidget.horizontalHeader()
+            self.tableWidget_2.setHorizontalHeaderLabels(array_item_column)
+            header.setSectionResizeMode(x, QtWidgets.QHeaderView.Stretch)
+
+            # self.tableWidget_2.clearSpans()
+
+            # self.tableWidget_2.insertRow(x)
+            # list_book = list(item)
+            # list_book.insert(0,x)
+            # print("print : ",list_book[x])
+            # self.m_grid3.ClearGrid()
+        #     self.tableWidget_2.setHorizontalHeaderLabels(list_book[x])
+        #     # self.m_grid3.SetColLabelValue(x,list_book[1])
+        array_item_row = []
+        for x , item in enumerate(row_name):
+            array_item_row.append(item[0])
+            self.tableWidget_2.insertRow(x)
+            self.tableWidget_2.setVerticalHeaderLabels(array_item_row)
+        #     self.m_grid3.AppendRows(x)
+        #     list_item = list(item)
+        #     list_item.insert(0,x)
+        #     print(list_item[1])
+            # self.m_grid3.ClearGrid()
+            # self.m_grid3.SetRowLabelValue(x,list_item[1])
 
 if __name__ == "__main__":
     import sys

@@ -61,6 +61,12 @@ cursor2 = mysql_db2.cursor()
 
 class query:
 
+    def get_row_column(self, data):
+        cursor2.execute(data)
+        result = cursor2.fetchall()
+
+        return (result)
+
     def mysql_db_etl(self,data):
         cursor2.execute(data)
         result = cursor2.fetchall()
