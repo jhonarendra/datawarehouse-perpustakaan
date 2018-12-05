@@ -223,6 +223,7 @@ class Ui_MainWindow(object):
         self.queries_etl.check_buku(mysql_check_buku)
         self.queries_etl.check_cabang_perpustakaan(mysql_check_perpustakaan)
         self.queries_etl.check_fact_peminjaman_bulan(mysql_check_peminjaman)
+
     def selectData(self):
         for i in range(0, 100):
             self.tableWidget_3.removeRow(0)

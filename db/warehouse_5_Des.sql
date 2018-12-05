@@ -58,7 +58,7 @@ CREATE TABLE `dim_member` (
   `alamat` varchar(30) DEFAULT NULL,
   `jenis_kelamin` enum('Laki-Laki','Perempuan') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 /*Data for the table `dim_member` */
 
@@ -81,7 +81,8 @@ insert  into `dim_member`(`id`,`nama_member`,`alamat`,`jenis_kelamin`) values
 (16,'sebastian','badung','Laki-Laki'),
 (17,'cok','badung','Laki-Laki'),
 (18,'agung','badung','Laki-Laki'),
-(19,'wahyudi','badung','Laki-Laki');
+(19,'wahyudi','badung','Laki-Laki'),
+(20,'budi','badung','Laki-Laki');
 
 /*Table structure for table `dim_perpustakaan` */
 
@@ -113,6 +114,7 @@ CREATE TABLE `fact_peminjaman_bulan` (
   `id_dimPerpustakaan` int(10) DEFAULT NULL,
   `tahun` varchar(4) DEFAULT NULL,
   `bulan` varchar(10) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_dimBuku` (`id_dimBuku`),
@@ -121,67 +123,28 @@ CREATE TABLE `fact_peminjaman_bulan` (
   CONSTRAINT `fact_peminjaman_bulan_ibfk_1` FOREIGN KEY (`id_dimBuku`) REFERENCES `dim_buku` (`id`),
   CONSTRAINT `fact_peminjaman_bulan_ibfk_2` FOREIGN KEY (`id_dimMember`) REFERENCES `dim_member` (`id`),
   CONSTRAINT `fact_peminjaman_bulan_ibfk_3` FOREIGN KEY (`id_dimPerpustakaan`) REFERENCES `dim_perpustakaan` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=150 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `fact_peminjaman_bulan` */
-
-insert  into `fact_peminjaman_bulan`(`id`,`id_dimBuku`,`id_dimMember`,`id_dimPerpustakaan`,`tahun`,`bulan`,`jumlah`) values 
-(113,1,8,2,'2018','January',1),
-(114,1,2,2,'2018','January',2),
-(115,2,7,1,'2018','January',1),
-(116,2,4,1,'2018','January',1),
-(117,1,6,3,'2018','January',1),
-(118,2,3,3,'2018','January',1),
-(119,3,5,2,'2018','January',2),
-(120,3,4,1,'2018','January',1),
-(121,1,9,3,'2018','January',1),
-(122,4,6,3,'2018','January',2),
-(123,1,3,3,'2018','January',1),
-(124,3,1,2,'2018','February',1),
-(125,3,5,1,'2018','February',1),
-(126,1,3,1,'2018','February',1),
-(127,1,1,2,'2018','February',1),
-(128,2,3,1,'2018','February',1),
-(129,2,1,1,'2018','February',1),
-(130,4,2,2,'2018','March',1),
-(131,3,4,3,'2018','March',2),
-(132,9,4,3,'2018','March',1),
-(133,1,4,3,'2018','March',3),
-(134,5,2,2,'2018','March',1),
-(135,2,4,3,'2018','March',1),
-(136,3,9,3,'2018','March',1),
-(137,4,1,2,'2018','April',1),
-(138,3,9,1,'2018','April',1),
-(139,5,1,2,'2018','April',1),
-(140,1,6,2,'2018','April',3),
-(141,1,9,1,'2018','April',2),
-(142,1,1,3,'2018','April',2),
-(143,3,4,3,'2018','May',2),
-(144,6,5,2,'2018','May',1),
-(145,3,2,1,'2018','May',1),
-(146,1,4,3,'2018','May',1),
-(147,3,5,2,'2018','May',1),
-(148,1,1,1,'2018','November',2),
-(149,2,1,1,'2018','November',1);
 
 /*Table structure for table `fact_peminjaman_tahun` */
 
 DROP TABLE IF EXISTS `fact_peminjaman_tahun`;
 
 CREATE TABLE `fact_peminjaman_tahun` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_dimBuku` int(10) DEFAULT NULL,
-  `id_dimMember` int(10) DEFAULT NULL,
-  `id_dimPerpustakaan` int(10) DEFAULT NULL,
-  `tahun` varchar(4) DEFAULT NULL,
-  `jumlah` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_dimBuku` (`id_dimBuku`),
-  KEY `id_dimMember` (`id_dimMember`),
-  KEY `id_dimPerpustakaan` (`id_dimPerpustakaan`),
-  CONSTRAINT `fact_peminjaman_tahun_ibfk_1` FOREIGN KEY (`id_dimBuku`) REFERENCES `dim_buku` (`id`),
-  CONSTRAINT `fact_peminjaman_tahun_ibfk_2` FOREIGN KEY (`id_dimMember`) REFERENCES `dim_member` (`id`),
-  CONSTRAINT `fact_peminjaman_tahun_ibfk_3` FOREIGN KEY (`id_dimPerpustakaan`) REFERENCES `dim_perpustakaan` (`id`)
+  `id` int(5) DEFAULT NULL,
+  `id_DimBuku` int(5) DEFAULT NULL,
+  `id_DimMember` int(5) DEFAULT NULL,
+  `id_DimPerpustakaan` int(5) DEFAULT NULL,
+  `bulan` varchar(30) DEFAULT NULL,
+  `tahun` varchar(30) DEFAULT NULL,
+  `jumlah` varchar(5) DEFAULT NULL,
+  KEY `id_DimBuku` (`id_DimBuku`),
+  KEY `id_DimMember` (`id_DimMember`),
+  KEY `id_DimPerpustakaan` (`id_DimPerpustakaan`),
+  CONSTRAINT `fact_peminjaman_tahun_ibfk_1` FOREIGN KEY (`id_DimBuku`) REFERENCES `dim_buku` (`id`),
+  CONSTRAINT `fact_peminjaman_tahun_ibfk_2` FOREIGN KEY (`id_DimMember`) REFERENCES `dim_member` (`id`),
+  CONSTRAINT `fact_peminjaman_tahun_ibfk_3` FOREIGN KEY (`id_DimPerpustakaan`) REFERENCES `dim_perpustakaan` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `fact_peminjaman_tahun` */
@@ -200,7 +163,7 @@ CREATE TABLE `history_etl` (
   PRIMARY KEY (`id`),
   KEY `id_tabel` (`id_tabel`),
   CONSTRAINT `history_etl_ibfk_1` FOREIGN KEY (`id_tabel`) REFERENCES `tb_tabel` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 /*Data for the table `history_etl` */
 
@@ -210,7 +173,8 @@ insert  into `history_etl`(`id`,`id_tabel`,`start_row`,`end_row`,`status`,`tgl_p
 (26,1,1,16,'sukses','2018-11-30 13:13:37'),
 (27,7,1,57,'sukses','2018-11-30 13:24:27'),
 (28,5,17,18,'sukses','2018-11-30 14:02:16'),
-(29,5,19,19,'sukses','2018-12-03 10:39:04');
+(29,5,19,19,'sukses','2018-12-03 10:39:04'),
+(30,5,20,20,'sukses','2018-12-04 15:02:02');
 
 /*Table structure for table `tb_tabel` */
 
