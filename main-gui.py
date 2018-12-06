@@ -468,9 +468,7 @@ class Ui_MainWindow(object):
             self.tableWidget_3.removeRow(0)
             self.tableWidget_3.removeColumn(0)
 
-
         value_perpus = self.comboPerpus.currentText()
-        print(value_perpus)
         value_tahun = self.comboTahun.currentText()
 
         query_row = ("SELECT nama_member FROM fact_peminjaman_tahun INNER JOIN dim_member ON fact_peminjaman_tahun.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_tahun.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_perpustakaan = '"+value_perpus+"' AND tahun = '"+value_tahun+"'  GROUP BY nama_member")
@@ -516,7 +514,7 @@ class Ui_MainWindow(object):
         print(total_data_nama)
         for y, nama in enumerate(row_name):
             arr_value = [0,0,0,0,0,0,0,0,0,0,0,0]
-            query_val = ("SELECT nama_member, bulan, COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_tahun INNER JOIN dim_member ON fact_peminjaman_tahun.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_tahun.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_member = '"+nama[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"'  GROUP BY bulan")
+            query_val = ("SELECT nama_member, bulan, SUM(jumlah) AS jumlah FROM fact_peminjaman_tahun INNER JOIN dim_member ON fact_peminjaman_tahun.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_tahun.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_member = '"+nama[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"'  GROUP BY bulan")
             row_val = self.queries_etl.get_row_column(query_val)
             # print("isi ;",row_val)
 
@@ -566,17 +564,22 @@ class Ui_MainWindow(object):
             # print(arr_value)
             for i in range(0,13):
                 self.tableWidget_2.setItem(y, i, QtWidgets.QTableWidgetItem(str(arr_value[i])))
+
+        total = 0
+        for y in range(12):
+            total = total+total_data_nama[y][1]
+        total_data_nama.append([12,total])
         print(total_data_nama)
-        for x in range(12):
+        for x in range(13):
             self.tableWidget_2.setItem(len(row_name), x, QtWidgets.QTableWidgetItem(str(total_data_nama[x][1])))
 
         total_data_buku = []
         for i in range(12):
             total_data_buku.append([i, 0])
-        print(total_data_nama)
+
         for y, buku in enumerate(row_book):
             arr_value = [0,0,0,0,0,0,0,0,0,0,0,0]
-            query_val = ("SELECT nama_buku, bulan, COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_tahun INNER JOIN dim_buku ON fact_peminjaman_tahun.`id_dimBuku`=dim_buku.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_tahun.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_buku = '"+buku[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"'  GROUP BY bulan")
+            query_val = ("SELECT nama_buku, bulan, SUM(jumlah) AS jumlah FROM fact_peminjaman_tahun INNER JOIN dim_buku ON fact_peminjaman_tahun.`id_dimBuku`=dim_buku.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_tahun.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_buku = '"+buku[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"'  GROUP BY bulan")
             row_val = self.queries_etl.get_row_column(query_val)
 
             for x, item in enumerate(row_val):
@@ -624,8 +627,13 @@ class Ui_MainWindow(object):
             arr_value.append(total_buku)
             for i in range(0,13):
                 self.tableWidget_3.setItem(y, i, QtWidgets.QTableWidgetItem(str(arr_value[i])))
-        print(array_row_book)
-        for x in range(12):
+
+        total_buku = 0
+        for y in range(12):
+            total_buku = total_buku + total_data_buku[y][1]
+        print(total_buku)
+        total_data_buku.append([13,total_buku])
+        for x in range(13):
             self.tableWidget_3.setItem(get_row_book-1, x, QtWidgets.QTableWidgetItem(str(total_data_buku[x][1])))
 
     def selectDataBulan(self):
@@ -705,7 +713,7 @@ class Ui_MainWindow(object):
                 self.tableWidget_5.setHorizontalHeaderLabels(array_tanggal)
 
         total_data = []
-        for i in range(batas):
+        for i in range(batas-1):
             total_data.append([str(i+1), 0])
         # print(total_data)
         for i, nama in enumerate(row_name):
@@ -713,7 +721,7 @@ class Ui_MainWindow(object):
             for a in range(0,batas-1):
                 arr_value.append(0)
             # print(len(arr_value))
-            query_val = ("SELECT nama_member, tanggal, COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_member = '"+nama[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"' AND bulan = '"+value_bulan+"' GROUP BY tanggal")
+            query_val = ("SELECT nama_member, tanggal, SUM(jumlah) AS jumlah FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_member = '"+nama[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"' AND bulan = '"+value_bulan+"' GROUP BY tanggal")
             row_val = self.queries_etl.get_row_column(query_val)
             # print("isi", row_val)
             total_user = 0
@@ -731,11 +739,17 @@ class Ui_MainWindow(object):
             for l in range(0, batas):
                 self.tableWidget_4.setItem(i, l, QtWidgets.QTableWidgetItem(str(arr_value[l])))
             # print(len(arr_value))
-        for x in range(batas-1):
+
+        print(total_data)
+        total = 0
+        for y in range(batas-1):
+            total = total + total_data[y][1]
+        total_data.append([str(batas), total])
+        for x in range(batas):
             self.tableWidget_4.setItem(len(row_name), x, QtWidgets.QTableWidgetItem(str(total_data[x][1])))
 
         total_data_buku = []
-        for i in range(batas):
+        for i in range(batas-1):
             total_data_buku.append([str(i + 1), 0])
 
         for i, buku in enumerate(row_book):
@@ -743,11 +757,10 @@ class Ui_MainWindow(object):
             for a in range(batas-1):
                 arr_value.append(0)
             # print(arr_value)
-            query_val = ("SELECT nama_buku, tanggal, COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_bulan INNER JOIN dim_buku ON fact_peminjaman_bulan.`id_dimBuku`=dim_buku.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_buku = '"+buku[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"' AND bulan = '"+value_bulan+"' GROUP BY tanggal")
+            query_val = ("SELECT nama_buku, tanggal, SUM(jumlah) AS jumlah FROM fact_peminjaman_bulan INNER JOIN dim_buku ON fact_peminjaman_bulan.`id_dimBuku`=dim_buku.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_buku = '"+buku[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"' AND bulan = '"+value_bulan+"' GROUP BY tanggal")
             row_val = self.queries_etl.get_row_column(query_val)
             # print("isi", row_val)
             total_buku = 0
-            print(row_val)
             for j, item in enumerate(row_val):
                 # print(item[1])
                 for k in range(0, batas-1):
@@ -761,7 +774,11 @@ class Ui_MainWindow(object):
             # print(arr_value)
             for l in range(0, batas):
                 self.tableWidget_5.setItem(i, l, QtWidgets.QTableWidgetItem(str(arr_value[l])))
-        for x in range(batas-1):
+        total_buku = 0
+        for y in range(batas-1):
+            total_buku = total_buku + total_data_buku[y][1]
+        total_data_buku.append([str(batas), total_buku])
+        for x in range(batas):
             self.tableWidget_5.setItem(len(row_book), x, QtWidgets.QTableWidgetItem(str(total_data_buku[x][1])))
 
     def refreshData(self):

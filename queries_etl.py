@@ -33,7 +33,7 @@ INNER JOIN detail_buku ON detail_peminjaman.`id_detil_buku`=detail_buku.`id`
 INNER JOIN member ON peminjaman.`id_member`=member.`id`
 INNER JOIN buku ON detail_buku.`id_buku`=buku.`id`
 INNER JOIN cb_perpustakaan ON peminjaman.`id_perpustakaan`=cb_perpustakaan.`id`
-GROUP BY nama_member, bulan, nama_buku
+GROUP BY nama_member, bulan, nama_buku, tanggal
 ORDER BY MONTH(peminjaman.`tgl_pinjam`);
 ''')
 
