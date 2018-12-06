@@ -319,9 +319,9 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>370</x>
         <y>0</y>
-        <width>221</width>
+        <width>421</width>
         <height>51</height>
        </rect>
       </property>
@@ -332,7 +332,7 @@
        </font>
       </property>
       <property name="text">
-       <string>PEMINJAMAN</string>
+       <string>WAREHOUSE PEMINJAMAN TAHUN</string>
       </property>
      </widget>
      <widget class="QTabWidget" name="tabWidget_2">
@@ -755,25 +755,6 @@
        <string>Load Data</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>490</x>
-        <y>0</y>
-        <width>221</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>MS Shell Dlg 2</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>PEMINJAMAN</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
@@ -832,6 +813,25 @@
       </property>
       <property name="text">
        <string>Pilih Bulan</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>0</y>
+        <width>421</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>WAREHOUSE PEMINJAMAN BULAN</string>
       </property>
      </widget>
     </widget>

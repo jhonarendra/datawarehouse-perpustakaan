@@ -149,7 +149,7 @@ class Ui_MainWindow(object):
         self.buttonReset.setFont(font)
         self.buttonReset.setObjectName("buttonReset")
         self.label = QtWidgets.QLabel(self.tab_2)
-        self.label.setGeometry(QtCore.QRect(460, 0, 221, 51))
+        self.label.setGeometry(QtCore.QRect(370, 0, 421, 51))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(20)
@@ -320,6 +320,13 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_10.setFont(font)
         self.label_10.setObjectName("label_10")
+        self.label_11 = QtWidgets.QLabel(self.tabBulan)
+        self.label_11.setGeometry(QtCore.QRect(370, 0, 421, 51))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(20)
+        self.label_11.setFont(font)
+        self.label_11.setObjectName("label_11")
         self.tabWidget.addTab(self.tabBulan, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -363,7 +370,7 @@ class Ui_MainWindow(object):
         # self.comboTahun.setItemText(2, _translate("MainWindow", "2019"))
         self.buttonLoad.setText(_translate("MainWindow", "Load Data"))
         self.buttonReset.setText(_translate("MainWindow", "Reset Data"))
-        self.label.setText(_translate("MainWindow", "PEMINJAMAN"))
+        self.label.setText(_translate("MainWindow", "WAREHOUSE PEMINJAMAN TAHUN"))
         __sortingEnabled = self.tableWidget_2.isSortingEnabled()
         self.tableWidget_2.setSortingEnabled(False)
         self.tableWidget_2.setSortingEnabled(__sortingEnabled)
@@ -375,28 +382,8 @@ class Ui_MainWindow(object):
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), _translate("MainWindow", "Buku"))
         self.label_6.setText(_translate("MainWindow", "Pilih Perpustakaan"))
         self.label_7.setText(_translate("MainWindow", "Pilih Tahun"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Data Warehouse"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "DWH Tahun"))
         self.buttonReset_2.setText(_translate("MainWindow", "Reset Data"))
-        # self.comboBulan.setCurrentText(_translate("MainWindow", "Januari"))
-        # self.comboBulan.setItemText(0, _translate("MainWindow", "Januari"))
-        # self.comboBulan.setItemText(1, _translate("MainWindow", "Februari"))
-        # self.comboBulan.setItemText(2, _translate("MainWindow", "Maret"))
-        # self.comboBulan.setItemText(3, _translate("MainWindow", "April"))
-        # self.comboBulan.setItemText(4, _translate("MainWindow", "Mei"))
-        # self.comboBulan.setItemText(5, _translate("MainWindow", "Juni"))
-        # self.comboBulan.setItemText(6, _translate("MainWindow", "Juli"))
-        # self.comboBulan.setItemText(7, _translate("MainWindow", "Agustus"))
-        # self.comboBulan.setItemText(8, _translate("MainWindow", "September"))
-        # self.comboBulan.setItemText(9, _translate("MainWindow", "Oktober"))
-        # self.comboBulan.setItemText(10, _translate("MainWindow", "November"))
-        # self.comboBulan.setItemText(11, _translate("MainWindow", "Desember"))
-        # self.comboPerpus_2.setCurrentText(_translate("MainWindow", "Perpustakaan Bersama"))
-        # self.comboPerpus_2.setItemText(0, _translate("MainWindow", "Perpustakaan Bersama"))
-        # self.comboPerpus_2.setItemText(1, _translate("MainWindow", "Perpustakaan Jurusan"))
-        # self.comboTahun_2.setCurrentText(_translate("MainWindow", "2017"))
-        # self.comboTahun_2.setItemText(0, _translate("MainWindow", "2017"))
-        # self.comboTahun_2.setItemText(1, _translate("MainWindow", "2018"))
-        # self.comboTahun_2.setItemText(2, _translate("MainWindow", "2019"))
         __sortingEnabled = self.tableWidget_4.isSortingEnabled()
         self.tableWidget_4.setSortingEnabled(False)
         self.tableWidget_4.setSortingEnabled(__sortingEnabled)
@@ -407,7 +394,7 @@ class Ui_MainWindow(object):
         self.tableWidget_5.setSortingEnabled(__sortingEnabled)
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_6), _translate("MainWindow", "Buku"))
         self.buttonLoad_2.setText(_translate("MainWindow", "Load Data"))
-        self.label_5.setText(_translate("MainWindow", "PEMINJAMAN"))
+        self.label_11.setText(_translate("MainWindow", "WAREHOUSE PEMINJAMAN BULAN"))
         self.label_8.setText(_translate("MainWindow", "Pilih Perpustakaan"))
         self.label_9.setText(_translate("MainWindow", "Pilih Tahun"))
         self.label_10.setText(_translate("MainWindow", "Pilih Bulan"))
@@ -594,6 +581,9 @@ class Ui_MainWindow(object):
             for i in range(0,12):
                 self.tableWidget_3.setItem(y, i, QtWidgets.QTableWidgetItem(str(arr_value[i])))
             print("penamaan selesai")
+            self.comboboxBulan()
+            self.comboboxPerpustaka()
+            self.comboboxTahun()
 
     def selectDataBulan(self):
         for i in range(0, 100):
@@ -602,12 +592,12 @@ class Ui_MainWindow(object):
             self.tableWidget_5.removeRow(0)
             self.tableWidget_5.removeColumn(0)
 
-        value_perpus = self.comboPerpus.currentText()
+        value_perpus = self.comboPerpus_2.currentText()
         print(value_perpus)
-        value_tahun = self.comboTahun.currentText()
+        value_tahun = self.comboTahun_2.currentText()
         value_bulan = self.comboBulan.currentText()
 
-        query_row = ("SELECT nama_member FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_perpustakaan = '"+value_perpus+"' AND tahun = '"+value_tahun+"'  GROUP BY nama_member")
+        query_row = ("SELECT nama_member FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_perpustakaan = '"+value_perpus+"' AND tahun = '"+value_tahun+"' AND bulan = '"+value_bulan+"'  GROUP BY nama_member")
         row_name = self.queries_etl.get_row_column(query_row)
         array_row_name = []
         for x, item in enumerate(row_name):
@@ -615,7 +605,7 @@ class Ui_MainWindow(object):
             self.tableWidget_4.insertRow(x)
             self.tableWidget_4.setVerticalHeaderLabels(array_row_name)
 
-        query_row_book = ("SELECT nama_buku FROM fact_peminjaman_bulan INNER JOIN dim_buku ON fact_peminjaman_bulan.`id_dimBuku`=dim_buku.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_perpustakaan = '"+value_perpus+"' AND tahun = '"+value_tahun+"' GROUP BY nama_buku")
+        query_row_book = ("SELECT nama_buku FROM fact_peminjaman_bulan INNER JOIN dim_buku ON fact_peminjaman_bulan.`id_dimBuku`=dim_buku.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_perpustakaan = '"+value_perpus+"' AND tahun = '"+value_tahun+"' AND bulan = '"+value_bulan+"' GROUP BY nama_buku")
         row_book = self.queries_etl.get_row_column(query_row_book)
         array_row_book = []
         for x , item in enumerate(row_book):
@@ -623,8 +613,10 @@ class Ui_MainWindow(object):
             self.tableWidget_5.insertRow(x)
             self.tableWidget_5.setVerticalHeaderLabels(array_row_book)
 
+        batas = 0
+        array_tanggal = []
         if (value_bulan == 'January') or (value_bulan == 'March') or (value_bulan == 'May') or (value_bulan == 'July') or  (value_bulan == 'August') or (value_bulan == 'October') or  (value_bulan =='December'):
-            array_tanggal = []
+            batas = 31
             for i in range(0,31):
                 array_tanggal.append(str(i+1))
                 self.tableWidget_4.insertColumn(i)
@@ -634,7 +626,7 @@ class Ui_MainWindow(object):
         elif value_bulan == 'February':
             leap_day = int(float(value_tahun))%4
             if leap_day == 0:
-                array_tanggal = []
+                batas = 29
                 for i in range(0, 29):
                     array_tanggal.append(str(i + 1))
                     self.tableWidget_4.insertColumn(i)
@@ -642,7 +634,7 @@ class Ui_MainWindow(object):
                     self.tableWidget_5.insertColumn(i)
                     self.tableWidget_5.setHorizontalHeaderLabels(array_tanggal)
             else:
-                array_tanggal = []
+                batas = 28
                 for i in range(0, 28):
                     array_tanggal.append(str(i + 1))
                     self.tableWidget_4.insertColumn(i)
@@ -650,13 +642,51 @@ class Ui_MainWindow(object):
                     self.tableWidget_5.insertColumn(i)
                     self.tableWidget_5.setHorizontalHeaderLabels(array_tanggal)
         else:
-            array_tanggal = []
+            batas = 30
             for i in range(0, 30):
                 array_tanggal.append(str(i + 1))
                 self.tableWidget_4.insertColumn(i)
                 self.tableWidget_4.setHorizontalHeaderLabels(array_tanggal)
                 self.tableWidget_5.insertColumn(i)
                 self.tableWidget_5.setHorizontalHeaderLabels(array_tanggal)
+
+        for i, nama in enumerate(row_name):
+            arr_value = []
+            for a in enumerate(array_tanggal):
+                arr_value.append(0)
+            # print(arr_value)
+            query_val = ("SELECT nama_member, tanggal, COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_member = '"+nama[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"' AND bulan = '"+value_bulan+"' GROUP BY tanggal")
+            row_val = self.queries_etl.get_row_column(query_val)
+            print("isi", row_val)
+            for j, item in enumerate(row_val):
+                print(item[1])
+                for k in range(0, batas):
+                    if item[1] == array_tanggal[k]:
+                        arr_value[k] = item[2]
+            print(arr_value)
+
+            for l in range(0, batas):
+                self.tableWidget_4.setItem(i, l, QtWidgets.QTableWidgetItem(str(arr_value[l])))
+
+        for i, buku in enumerate(row_book):
+            arr_value = []
+            for a in enumerate(array_tanggal):
+                arr_value.append(0)
+            # print(arr_value)
+            query_val = ("SELECT nama_buku, tanggal, COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_bulan INNER JOIN dim_buku ON fact_peminjaman_bulan.`id_dimBuku`=dim_buku.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_buku = '"+buku[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"' AND bulan = '"+value_bulan+"' GROUP BY tanggal")
+            row_val = self.queries_etl.get_row_column(query_val)
+            print("isi", row_val)
+            for j, item in enumerate(row_val):
+                print(item[1])
+                for k in range(0, batas):
+                    if item[1] == array_tanggal[k]:
+                        arr_value[k] = item[2]
+            print(arr_value)
+
+            for l in range(0, batas):
+                self.tableWidget_5.setItem(i, l, QtWidgets.QTableWidgetItem(str(arr_value[l])))
+
+
 
     def refreshData(self):
         for i in range(0, 100):
