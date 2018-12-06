@@ -81,6 +81,10 @@ class query:
 
         return (result)
 
+    def closing(self):
+        cursor.close()
+        cursor2.close()
+
     def mysql_db_etl(self,data):
         cursor2.execute(data)
         result = cursor2.fetchall()

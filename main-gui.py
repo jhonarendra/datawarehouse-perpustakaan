@@ -166,7 +166,7 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.tableWidget_2.setFont(font)
         self.tableWidget_2.setRowCount(0)
-        self.tableWidget_2.setColumnCount(12)
+        self.tableWidget_2.setColumnCount(0)
         self.tableWidget_2.setObjectName("tableWidget_2")
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setItem(0, 0, item)
@@ -179,7 +179,7 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.tableWidget_3.setFont(font)
         self.tableWidget_3.setRowCount(0)
-        self.tableWidget_3.setColumnCount(12)
+        self.tableWidget_3.setColumnCount(0)
         self.tableWidget_3.setObjectName("tableWidget_3")
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_3.setItem(0, 0, item)
@@ -338,9 +338,6 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         #Get Data for Select Box
-        self.comboboxPerpustaka()
-        self.comboboxTahun()
-        self.comboboxBulan()
         self.loadData()
 
         self.retranslateUi(MainWindow)
@@ -466,8 +463,11 @@ class Ui_MainWindow(object):
 
     def selectDataTahun(self):
         for i in range(0, 100):
-            self.tableWidget_3.removeRow(0)
             self.tableWidget_2.removeRow(0)
+            self.tableWidget_2.removeColumn(0)
+            self.tableWidget_3.removeRow(0)
+            self.tableWidget_3.removeColumn(0)
+
 
         value_perpus = self.comboPerpus.currentText()
         print(value_perpus)
@@ -480,22 +480,51 @@ class Ui_MainWindow(object):
         row_book = self.queries_etl.get_row_column(query_row_book)
 
         array_row_name = []
-        for x , item in enumerate(row_name):
+        row_min = len(row_name)
+        get_row = len(row_name)+1
+        # print(get_row)
+        # for x in range(get_row):
+        #     if x <= row_min:
+        # name = row_name[x][0]
+        for x, item in enumerate(row_name):
             array_row_name.append(item[0])
             self.tableWidget_2.insertRow(x)
             self.tableWidget_2.setVerticalHeaderLabels(array_row_name)
-            # print(x)
-        self.tableWidget_2.setHorizontalHeaderLabels(['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'July', 'Agustus', 'September', 'Oktober', 'November', 'Desember'])
-        self.tableWidget_2.horizontalHeader()
+        print("test")
+        #     else:
+        #         name = 'Total'
+        #         array_row_name.append(name)
+        #         print(array_row_name)
+        #         self.tableWidget_2.insertRow(x)
+        #         self.tableWidget_2.setVerticalHeaderLabels(array_row_name)
 
         array_row_book = []
         for x , item in enumerate(row_book):
             array_row_book.append(item[0])
             self.tableWidget_3.insertRow(x)
             self.tableWidget_3.setVerticalHeaderLabels(array_row_book)
-        self.tableWidget_3.setHorizontalHeaderLabels(['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'July', 'Agustus', 'September', 'Oktober', 'November', 'Desember'])
-        self.tableWidget_3.horizontalHeader()
+
+        array_column = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'July', 'Agustus', 'September', 'Oktober', 'November', 'Desember','Total']
+        for x in range(13):
+            self.tableWidget_3.insertColumn(x)
+            self.tableWidget_3.setHorizontalHeaderLabels(array_column)
+            # self.tableWidget_3.horizontalHeader()
+            self.tableWidget_2.insertColumn(x)
+            self.tableWidget_2.setHorizontalHeaderLabels(array_column)
+            # self.tableWidget_2.horizontalHeader()
         print("loop berhasil")
+        get_jan = 0
+        get_feb = 0
+        get_mar = 0
+        get_apr = 0
+        get_mei = 0
+        get_jun = 0
+        get_jul = 0
+        get_agu = 0
+        get_sep = 0
+        get_okt = 0
+        get_nov = 0
+        get_des = 0
 
         for y, nama in enumerate(row_name):
             arr_value = [0,0,0,0,0,0,0,0,0,0,0,0]
@@ -506,39 +535,68 @@ class Ui_MainWindow(object):
             for x, item in enumerate(row_val):
                 if item[1] == "January":
                     arr_value[0] = item[2]
+                    get_jan = get_jan + arr_value[0]
                 if item[1] == "February":
                     arr_value[1] = item[2]
+                    get_feb = get_feb + arr_value[1]
                 if item[1] == "March":
                     arr_value[2] = item[2]
+                    get_mar = get_mar + arr_value[2]
                 if item[1] == "April":
                     arr_value[3] = item[2]
+                    get_apr = get_apr + arr_value[3]
                 if item[1] == "May":
                     arr_value[4] = item[2]
+                    get_mei = get_mar + arr_value[4]
                 if item[1] == "June":
                     arr_value[5] = item[2]
+                    get_jun = get_jun + arr_value[5]
                 if item[1] == "July":
                     arr_value[6] = item[2]
+                    get_jul = get_jul + arr_value[6]
                 if item[1] == "August":
                     arr_value[7] = item[2]
+                    get_agu = get_agu + arr_value[7]
                 if item[1] == "September":
                     arr_value[8] = item[2]
+                    get_sep = get_sep + arr_value[8]
                 if item[1] == "October":
                     arr_value[9] = item[2]
+                    get_okt = get_okt + arr_value[9]
                 if item[1] == "November":
                     arr_value[10] = item[2]
+                    get_nov = get_nov + arr_value[10]
                 if item[1] == "December":
                     arr_value[11] = item[2]
+                    get_des = get_des + arr_value[11]
 
-            # print(arr_value)
-            # arr_value = []
-            # for x, item in enumerate(row_name):
-            #     query_val = ("SELECT COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` WHERE nama_member = '"+item[0]+"' AND tahun = 2018 AND bulan = 'januari' GROUP BY bulan")
-            #     row_val = self.queries_etl.get_row_column(query_val)
-            #     arr_value.append(row_val)
-            # print(arr_value)
-
-            for i in range(0,12):
+            total_user = 0
+            for i in range(12):
+                total_user = total_user+arr_value[i]
+            # print(total_user)
+            arr_value.append(total_user)
+            for i in range(0,13):
                 self.tableWidget_2.setItem(y, i, QtWidgets.QTableWidgetItem(str(arr_value[i])))
+
+        print(len(row_name))
+
+        get_total = []
+        get_total.append(get_jan)
+        get_total.append(get_feb)
+        get_total.append(get_mar)
+        get_total.append(get_apr)
+        get_total.append(get_mei)
+        get_total.append(get_jun)
+        get_total.append(get_jul)
+        get_total.append(get_agu)
+        get_total.append(get_sep)
+        get_total.append(get_okt)
+        get_total.append(get_nov)
+        get_total.append(get_des)
+
+        for x in range(12):
+            # print(get_total[x])
+            self.tableWidget_2.setItem(get_row, x, QtWidgets.QTableWidgetItem(str(get_total)))
 
         for y, buku in enumerate(row_book):
             arr_value = [0,0,0,0,0,0,0,0,0,0,0,0]
@@ -573,16 +631,12 @@ class Ui_MainWindow(object):
                 if item[1] == "December":
                     arr_value[11] = item[2]
 
-            # print(arr_value)
-            # arr_value = []
-            # for x, item in enumerate(row_name):
-            #     query_val = ("SELECT COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` WHERE nama_member = '"+item[0]+"' AND tahun = 2018 AND bulan = 'januari' GROUP BY bulan")
-            #     row_val = self.queries_etl.get_row_column(query_val)
-            #     arr_value.append(row_val)
-            # print(arr_value)
-            print("loop selesai")
+            total_buku = 0
+            for i in range(12):
+                total_buku  =total_buku +arr_value[i]
 
-            for i in range(0,12):
+            arr_value.append(total_buku)
+            for i in range(0,13):
                 self.tableWidget_3.setItem(y, i, QtWidgets.QTableWidgetItem(str(arr_value[i])))
             print("penamaan selesai")
             self.comboboxBulan()
@@ -617,37 +671,44 @@ class Ui_MainWindow(object):
             self.tableWidget_5.insertRow(x)
             self.tableWidget_5.setVerticalHeaderLabels(array_row_book)
 
-        batas = 0
         array_tanggal = []
         if (value_bulan == 'January') or (value_bulan == 'March') or (value_bulan == 'May') or (value_bulan == 'July') or  (value_bulan == 'August') or (value_bulan == 'October') or  (value_bulan =='December'):
-            batas = 31
-            for i in range(0,31):
-                array_tanggal.append(str(i+1))
-                self.tableWidget_4.insertColumn(i)
-                self.tableWidget_4.setHorizontalHeaderLabels(array_tanggal)
-                self.tableWidget_5.insertColumn(i)
-                self.tableWidget_5.setHorizontalHeaderLabels(array_tanggal)
+            batas = 32
+            for i in range(0,batas):
+                if i <= 30:
+                    array_tanggal.append(str(i+1))
+                    self.tableWidget_4.insertColumn(i)
+                    self.tableWidget_4.setHorizontalHeaderLabels(array_tanggal)
+                    self.tableWidget_5.insertColumn(i)
+                    self.tableWidget_5.setHorizontalHeaderLabels(array_tanggal)
+                else:
+                    array_tanggal.append("Total")
+                    self.tableWidget_4.insertColumn(i)
+                    self.tableWidget_4.setHorizontalHeaderLabels(array_tanggal)
+                    self.tableWidget_5.insertColumn(i)
+                    self.tableWidget_5.setHorizontalHeaderLabels(array_tanggal)
+                
         elif value_bulan == 'February':
             leap_day = int(float(value_tahun))%4
             if leap_day == 0:
-                batas = 29
-                for i in range(0, 29):
+                batas = 30
+                for i in range(0, batas):
                     array_tanggal.append(str(i + 1))
                     self.tableWidget_4.insertColumn(i)
                     self.tableWidget_4.setHorizontalHeaderLabels(array_tanggal)
                     self.tableWidget_5.insertColumn(i)
                     self.tableWidget_5.setHorizontalHeaderLabels(array_tanggal)
             else:
-                batas = 28
-                for i in range(0, 28):
+                batas = 29
+                for i in range(0, batas):
                     array_tanggal.append(str(i + 1))
                     self.tableWidget_4.insertColumn(i)
                     self.tableWidget_4.setHorizontalHeaderLabels(array_tanggal)
                     self.tableWidget_5.insertColumn(i)
                     self.tableWidget_5.setHorizontalHeaderLabels(array_tanggal)
         else:
-            batas = 30
-            for i in range(0, 30):
+            batas = 31
+            for i in range(0, batas):
                 array_tanggal.append(str(i + 1))
                 self.tableWidget_4.insertColumn(i)
                 self.tableWidget_4.setHorizontalHeaderLabels(array_tanggal)
@@ -656,37 +717,43 @@ class Ui_MainWindow(object):
 
         for i, nama in enumerate(row_name):
             arr_value = []
-            for a in enumerate(array_tanggal):
+            for a in range(0,batas-1):
                 arr_value.append(0)
-            # print(arr_value)
+            # print(len(arr_value))
             query_val = ("SELECT nama_member, tanggal, COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_member = '"+nama[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"' AND bulan = '"+value_bulan+"' GROUP BY tanggal")
             row_val = self.queries_etl.get_row_column(query_val)
-            print("isi", row_val)
+            # print("isi", row_val)
+            total_user = 0
             for j, item in enumerate(row_val):
-                print(item[1])
-                for k in range(0, batas):
+                # print(item[1])
+                for k in range(0, batas-1):
                     if item[1] == array_tanggal[k]:
                         arr_value[k] = item[2]
-            print(arr_value)
+                    total_user = total_user+arr_value[k]
 
+            arr_value.append(total_user)
+            # print(arr_value)
             for l in range(0, batas):
                 self.tableWidget_4.setItem(i, l, QtWidgets.QTableWidgetItem(str(arr_value[l])))
+            # print(len(arr_value))
 
         for i, buku in enumerate(row_book):
             arr_value = []
-            for a in enumerate(array_tanggal):
+            for a in range(batas-1):
                 arr_value.append(0)
             # print(arr_value)
             query_val = ("SELECT nama_buku, tanggal, COUNT(*) AS jumlah_peminjaman FROM fact_peminjaman_bulan INNER JOIN dim_buku ON fact_peminjaman_bulan.`id_dimBuku`=dim_buku.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_buku = '"+buku[0]+"' AND tahun = '"+value_tahun+"' AND nama_perpustakaan = '"+value_perpus+"' AND bulan = '"+value_bulan+"' GROUP BY tanggal")
             row_val = self.queries_etl.get_row_column(query_val)
-            print("isi", row_val)
+            # print("isi", row_val)
+            total_buku = 0
             for j, item in enumerate(row_val):
-                print(item[1])
-                for k in range(0, batas):
+                # print(item[1])
+                for k in range(0, batas-1):
                     if item[1] == array_tanggal[k]:
                         arr_value[k] = item[2]
-            print(arr_value)
-
+                    total_buku = total_buku+arr_value[k]
+            # print(arr_value)
+            arr_value.append(total_buku)
             for l in range(0, batas):
                 self.tableWidget_5.setItem(i, l, QtWidgets.QTableWidgetItem(str(arr_value[l])))
 
