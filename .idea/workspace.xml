@@ -4,8 +4,7 @@
     <list default="true" id="afa2aa16-a303-4deb-9cbc-82f40f394b21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/main-gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt-gui/dwh-gui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/qt-gui/dwh-gui.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt-gui/main-gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/qt-gui/main-gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queries_etl.py" beforeDir="false" afterPath="$PROJECT_DIR$/queries_etl.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/queries_etl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6394">
-              <caret line="279" column="34" selection-start-line="279" selection-start-column="34" selection-end-line="279" selection-end-column="34" />
+            <state relative-caret-position="234">
+              <caret line="389" column="46" selection-start-line="389" selection-start-column="46" selection-end-line="389" selection-end-column="46" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -27,28 +26,64 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main-gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="351" column="40" lean-forward="true" selection-start-line="351" selection-start-column="40" selection-end-line="351" selection-end-column="40" />
+            <state relative-caret-position="165">
+              <caret line="699" column="23" selection-start-line="699" selection-start-column="23" selection-end-line="699" selection-end-column="23" />
               <folding>
-                <element signature="e#196#238#0" expanded="true" />
-                <element signature="e#20201#21151#0" />
+                <element signature="n#!!doc" />
+                <element signature="e#288#405#0" />
+                <element signature="e#427#544#0" />
+                <element signature="e#574#691#0" />
+                <element signature="e#719#836#0" />
+                <element signature="e#862#1036#0" />
+                <element signature="e#1374#14542#0" />
+                <element signature="e#5164#5194#0" />
+                <element signature="e#5517#5546#0" />
+                <element signature="e#9521#9550#0" />
+                <element signature="e#10270#10302#0" />
+                <element signature="e#10640#10671#0" />
+                <element signature="e#15431#15514#0" />
                 <element signature="e#21195#21458#0" />
+                <element signature="e#21333#21458#0" />
                 <element signature="e#21497#21723#0" />
+                <element signature="e#21634#21723#0" />
                 <element signature="e#21762#21912#0" />
-                <element signature="e#22373#22722#0" />
+                <element signature="e#21947#22336#0" />
+                <element signature="e#21947#22109#0" />
+                <element signature="e#22261#22336#0" />
+                <element signature="e#21166#27964#0" />
+                <element signature="e#22799#22874#0" />
+                <element signature="e#23903#24071#0" />
+                <element signature="e#24382#24527#0" />
+                <element signature="e#24840#27088#0" />
+                <element signature="e#25453#26436#0" />
+                <element signature="e#26450#26468#0" />
+                <element signature="e#25549#27964#0" />
+                <element signature="e#27750#28733#0" />
+                <element signature="e#28747#28765#0" />
+                <element signature="e#28005#33862#0" />
+                <element signature="e#29534#29703#0" />
+                <element signature="e#30379#30524#0" />
+                <element signature="e#31013#31158#0" />
+                <element signature="e#31383#31736#0" />
+                <element signature="e#31452#31736#0" />
+                <element signature="e#30300#31178#0" />
+                <element signature="e#30424#30791#0" />
+                <element signature="e#31950#32252#0" />
+                <element signature="e#30848#31193#0" />
+                <element signature="e#32365#32667#0" />
+                <element signature="e#31243#31568#0" />
+                <element signature="e#32764#33050#0" />
+                <element signature="e#31688#32836#0" />
+                <element signature="e#32421#32576#0" />
+                <element signature="e#32498#32576#0" />
+                <element signature="e#32810#33862#0" />
+                <element signature="e#33543#33698#0" />
+                <element signature="e#33620#33698#0" />
+                <element signature="e#33209#33403#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/qt-gui/main-gui.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="280" column="47" lean-forward="true" selection-start-line="280" selection-start-column="47" selection-end-line="287" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -95,8 +130,8 @@
         <option value="$PROJECT_DIR$/main-gui-dwh.py" />
         <option value="$PROJECT_DIR$/database.py" />
         <option value="$PROJECT_DIR$/warehouse_function.py" />
-        <option value="$PROJECT_DIR$/queries_etl.py" />
         <option value="$PROJECT_DIR$/main-gui.py" />
+        <option value="$PROJECT_DIR$/queries_etl.py" />
       </list>
     </option>
   </component>
@@ -290,7 +325,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36764705" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36764705" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -419,16 +454,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/warehouse_function.py" />
-    <entry file="file://$PROJECT_DIR$/queries_etl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6394">
-          <caret line="279" column="34" selection-start-line="279" selection-start-column="34" selection-end-line="279" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qt-gui/main-gui.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -438,15 +463,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main-gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="351" column="40" lean-forward="true" selection-start-line="351" selection-start-column="40" selection-end-line="351" selection-end-column="40" />
+        <state relative-caret-position="165">
+          <caret line="699" column="23" selection-start-line="699" selection-start-column="23" selection-end-line="699" selection-end-column="23" />
           <folding>
-            <element signature="e#196#238#0" expanded="true" />
-            <element signature="e#20201#21151#0" />
+            <element signature="n#!!doc" />
+            <element signature="e#288#405#0" />
+            <element signature="e#427#544#0" />
+            <element signature="e#574#691#0" />
+            <element signature="e#719#836#0" />
+            <element signature="e#862#1036#0" />
+            <element signature="e#1374#14542#0" />
+            <element signature="e#5164#5194#0" />
+            <element signature="e#5517#5546#0" />
+            <element signature="e#9521#9550#0" />
+            <element signature="e#10270#10302#0" />
+            <element signature="e#10640#10671#0" />
+            <element signature="e#15431#15514#0" />
             <element signature="e#21195#21458#0" />
+            <element signature="e#21333#21458#0" />
             <element signature="e#21497#21723#0" />
+            <element signature="e#21634#21723#0" />
             <element signature="e#21762#21912#0" />
-            <element signature="e#22373#22722#0" />
+            <element signature="e#21947#22336#0" />
+            <element signature="e#21947#22109#0" />
+            <element signature="e#22261#22336#0" />
+            <element signature="e#21166#27964#0" />
+            <element signature="e#22799#22874#0" />
+            <element signature="e#23903#24071#0" />
+            <element signature="e#24382#24527#0" />
+            <element signature="e#24840#27088#0" />
+            <element signature="e#25453#26436#0" />
+            <element signature="e#26450#26468#0" />
+            <element signature="e#25549#27964#0" />
+            <element signature="e#27750#28733#0" />
+            <element signature="e#28747#28765#0" />
+            <element signature="e#28005#33862#0" />
+            <element signature="e#29534#29703#0" />
+            <element signature="e#30379#30524#0" />
+            <element signature="e#31013#31158#0" />
+            <element signature="e#31383#31736#0" />
+            <element signature="e#31452#31736#0" />
+            <element signature="e#30300#31178#0" />
+            <element signature="e#30424#30791#0" />
+            <element signature="e#31950#32252#0" />
+            <element signature="e#30848#31193#0" />
+            <element signature="e#32365#32667#0" />
+            <element signature="e#31243#31568#0" />
+            <element signature="e#32764#33050#0" />
+            <element signature="e#31688#32836#0" />
+            <element signature="e#32421#32576#0" />
+            <element signature="e#32498#32576#0" />
+            <element signature="e#32810#33862#0" />
+            <element signature="e#33543#33698#0" />
+            <element signature="e#33620#33698#0" />
+            <element signature="e#33209#33403#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queries_etl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="389" column="46" selection-start-line="389" selection-start-column="46" selection-end-line="389" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>

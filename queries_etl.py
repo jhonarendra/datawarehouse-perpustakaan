@@ -60,6 +60,7 @@ mysql_cek_etl_peminjaman = ('''
         LIMIT 1;
 ''')
 
+
 ############################################################
 ############################################################
 
@@ -183,8 +184,7 @@ class query:
             count_end_row = cursor2.fetchall()
             end_row_member = count_end_row[0][0]
             print(end_row_member)
-            mysql_cek_db_member = ("SELECT buku.id, buku.nama_buku , pengarang.nama_pengarang, penerbit.nama_penerbit "
-                                   "FROM buku INNER JOIN pengarang ON buku.id_pengarang= pengarang.id INNER JOIN penerbit ON buku.id_penerbit = penerbit.id WHERE buku.id > %d" % (end_row_member))
+            mysql_cek_db_member = ("SELECT buku.id, buku.nama_buku , pengarang.nama_pengarang, penerbit.nama_penerbit FROM buku INNER JOIN pengarang ON buku.id_pengarang= pengarang.id INNER JOIN penerbit ON buku.id_penerbit = penerbit.id WHERE buku.id > %d" % (end_row_member))
             cursor.execute(mysql_cek_db_member)
             get_data = cursor.fetchall()
             print(get_data)
@@ -366,4 +366,27 @@ class query:
                 cursor2.execute(mysql_insert)
                 mysql_db2.commit()
                 print("data sudah masuk ke histori")
+
+    def resetWarehouse(self):
+        mysql_delete = ("TRUNCATE TABLE history_etl; ")
+        mysql_alter = ("ALTER TABLE history_etl AUTO_INCREMENT = 1; ")
+        mysql_delete2 = ("TRUNCATE TABLE fact_peminjaman_bulan; ")
+        mysql_alter2 = ("ALTER TABLE fact_peminjaman_bulan AUTO_INCREMENT = 1; ")
+        mysql_delete3 = ("TRUNCATE TABLE fact_peminjaman_tahun; ")
+        mysql_alter3 = ("ALTER TABLE fact_peminjaman_tahun AUTO_INCREMENT = 1; ")
+        mysql_delete4 = ("DELETE FROM dim_buku; ")
+        mysql_delete5 = ("DELETE FROM dim_member; ")
+        mysql_delete6 = ("DELETE FROM dim_perpustakaan; ")
+        cursor2.execute(mysql_delete)
+        cursor2.execute(mysql_delete2)
+        cursor2.execute(mysql_delete3)
+        cursor2.execute(mysql_delete4)
+        cursor2.execute(mysql_delete5)
+        cursor2.execute(mysql_delete6)
+        print("Delete Data in All Tables Success")
+        cursor2.execute(mysql_alter)
+        cursor2.execute(mysql_alter2)
+        cursor2.execute(mysql_alter3)
+        print("Altering Auto Increment Success")
+
 

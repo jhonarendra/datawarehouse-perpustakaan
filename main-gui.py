@@ -405,6 +405,7 @@ class Ui_MainWindow(object):
         self.buttonReset.clicked.connect(self.resetData)
         self.buttonRefresh.clicked.connect(self.refreshData)
         self.buttonLoad_2.clicked.connect(self.selectDataBulan)
+        self.buttonResetWH.clicked.connect(self.resetWarehouse)
 
 
     def loadData(self):
@@ -421,6 +422,9 @@ class Ui_MainWindow(object):
                 header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
                 header.setSectionResizeMode(3, QtWidgets.QHeaderView.Stretch)
                 header.setSectionResizeMode(4, QtWidgets.QHeaderView.Stretch)
+        self.comboboxTahun()
+        self.comboboxPerpustaka()
+        self.comboboxBulan()
 
     def comboboxPerpustaka(self):
         result = self.queries_etl.mysql_db_etl(mysql_combobox_perpus)
@@ -686,11 +690,13 @@ class Ui_MainWindow(object):
             for l in range(0, batas):
                 self.tableWidget_5.setItem(i, l, QtWidgets.QTableWidgetItem(str(arr_value[l])))
 
-
-
     def refreshData(self):
         for i in range(0, 100):
             self.tableWidget.removeRow(0)
+        self.loadData()
+
+    def resetWarehouse(self):
+        self.queries_etl.resetWarehouse()
         self.loadData()
 
 if __name__ == "__main__":
