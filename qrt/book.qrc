@@ -1,0 +1,32 @@
+<RCC>
+  <qresource prefix="iconbook">
+    <file>book2.png</file>
+  </qresource>
+  <qresource prefix="setting">
+    <file>download (1).png</file>
+  </qresource>
+  <qresource prefix="show">
+    <file>images (2).png</file>
+  </qresource>
+  <qresource prefix="book2">
+    <file>book3.png</file>
+  </qresource>
+  <qresource prefix="person">
+    <file>grab-vector-graphic-person-icon--imagebasket-13.png</file>
+  </qresource>
+  <qresource prefix="date">
+    <file>date.png</file>
+  </qresource>
+  <qresource prefix="min">
+    <file>min-sql.png</file>
+  </qresource>
+  <qresource prefix="refresh">
+    <file>refresh.png</file>
+  </qresource>
+  <qresource prefix="iconextract">
+    <file>add-to-database.png</file>
+  </qresource>
+  <qresource prefix="iconsql">
+    <file>sql</file>
+  </qresource>
+</RCC>

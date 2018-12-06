@@ -23,6 +23,19 @@ SELECT buku.`id`, member.`id`, cb_perpustakaan.id, YEAR(peminjaman.`tgl_pinjam`)
                     INNER JOIN cb_perpustakaan ON peminjaman.`id_perpustakaan`=cb_perpustakaan.`id`
                     GROUP BY nama_member, bulan, nama_buku
                     ORDER BY MONTH(peminjaman.`tgl_pinjam`);''')
+mysql_select_peminjaman_bulan = ('''
+SELECT buku.`id`, member.`id`, cb_perpustakaan.id, YEAR(peminjaman.`tgl_pinjam`) AS tahun, MONTHNAME(peminjaman.`tgl_pinjam`) AS bulan,
+DAY(peminjaman.`tgl_pinjam`) AS tanggal, 
+COUNT(id_buku) AS jumlah
+FROM detail_peminjaman
+INNER JOIN peminjaman ON detail_peminjaman.`id_peminjaman`=peminjaman.`id`
+INNER JOIN detail_buku ON detail_peminjaman.`id_detil_buku`=detail_buku.`id`
+INNER JOIN member ON peminjaman.`id_member`=member.`id`
+INNER JOIN buku ON detail_buku.`id_buku`=buku.`id`
+INNER JOIN cb_perpustakaan ON peminjaman.`id_perpustakaan`=cb_perpustakaan.`id`
+GROUP BY nama_member, bulan, nama_buku, tanggal
+ORDER BY MONTH(peminjaman.`tgl_pinjam`);
+''')
 
 ######################################################
 #######################################################
@@ -47,6 +60,7 @@ mysql_cek_etl_peminjaman = ('''
         LIMIT 1;
 ''')
 
+
 ############################################################
 ############################################################
 
@@ -66,6 +80,10 @@ class query:
         result = cursor2.fetchall()
 
         return (result)
+
+    def closing(self):
+        cursor.close()
+        cursor2.close()
 
     def mysql_db_etl(self,data):
         cursor2.execute(data)
@@ -104,7 +122,7 @@ class query:
             print("data sudah masuk ke histori")
 
         else:
-            print("kode eror")
+            print("Cek Data Member Baru")
             cursor2.execute(mysql_cek_etl_member)
             count_end_row = cursor2.fetchall()
             end_row_member = count_end_row[0][0]
@@ -118,23 +136,23 @@ class query:
             else :
                 end_row_add_member = get_data[lenght_add_member-1][0]
                 start_row_add_member = get_data[0][0]
-                print(end_row_add_member,start_row_add_member)
-
 
                 for i in get_data:
                     mysql_insert = ("INSERT INTO dim_member(id, nama_member, jenis_kelamin, alamat) VALUES (%d,'%s','%s','%s')" % (i[0], i[1], i[2], i[3]))
                     cursor2.execute(mysql_insert)
                     mysql_db2.commit()
-                print("nambah data di dim member sukses")
+                print("Terdapat Data Member Baru")
 
                 mysql_insert = (
                             "INSERT INTO history_etl(id_tabel,start_row,end_row, status, tgl_proses) VALUES (%d,'%s','%s','%s','%s')" % (5, start_row_add_member, end_row_add_member, 1, formatted_date))
 
                 cursor2.execute(mysql_insert)
                 mysql_db2.commit()
-                print("data sudah masuk ke histori")
+                print("Data Member Baru Masuk ke Histori")
 
     def check_buku(self,data):
+        print("/n")
+        print("cek data buku baru")
         cursor2.execute(data)
         result = cursor2.fetchall()
         if len(result) == 0:
@@ -170,8 +188,7 @@ class query:
             count_end_row = cursor2.fetchall()
             end_row_member = count_end_row[0][0]
             print(end_row_member)
-            mysql_cek_db_member = ("SELECT buku.id, buku.nama_buku , pengarang.nama_pengarang, penerbit.nama_penerbit "
-                                   "FROM buku INNER JOIN pengarang ON buku.id_pengarang= pengarang.id INNER JOIN penerbit ON buku.id_penerbit = penerbit.id WHERE buku.id > %d" % (end_row_member))
+            mysql_cek_db_member = ("SELECT buku.id, buku.nama_buku , pengarang.nama_pengarang, penerbit.nama_penerbit FROM buku INNER JOIN pengarang ON buku.id_pengarang= pengarang.id INNER JOIN penerbit ON buku.id_penerbit = penerbit.id WHERE buku.id > %d" % (end_row_member))
             cursor.execute(mysql_cek_db_member)
             get_data = cursor.fetchall()
             print(get_data)
@@ -199,6 +216,8 @@ class query:
                 mysql_db2.commit()
                 print("data sudah masuk ke histori")
     def check_cabang_perpustakaan(self,data):
+        print("/n")
+        print("cek data perpustakaan baru")
         cursor2.execute(data)
         result = cursor2.fetchall()
         if len(result) == 0:
@@ -259,7 +278,10 @@ class query:
                 cursor2.execute(mysql_insert)
                 mysql_db2.commit()
                 print("data sudah masuk ke histori")
-    def check_fact_peminjaman_bulan(self,data):
+
+    def check_fact_peminjaman(self,data):
+        print("/n")
+        print("cek data peminjaman baru")
         cursor2.execute(data)
         result = cursor2.fetchall()
         if len(result) == 0:
@@ -267,6 +289,10 @@ class query:
             cursor.execute(mysql_select_peminjaman)
             get_data = cursor.fetchall() #mengambil data peminjaman yang akan di ETL
             print(get_data)
+
+            cursor.execute(mysql_select_peminjaman_bulan)
+            get_data_bulan = cursor.fetchall()
+            print(get_data_bulan)
 
             cursor.execute(mysql_extract_peminjaman)
             length_peminjaman = cursor.fetchall() #mengetahui awal dan akhir data peminjaman
@@ -277,11 +303,17 @@ class query:
             start_row_add_peminjaman = length_peminjaman[0][0]
             # print(start_row_add_peminjaman)
             for i in get_data:
-                mysql_insert = ("INSERT INTO fact_peminjaman_bulan(id_dimBuku,id_dimMember,id_dimPerpustakaan,tahun,bulan,jumlah) "
+                mysql_insert = ("INSERT INTO fact_peminjaman_tahun(id_dimBuku,id_dimMember,id_dimPerpustakaan,tahun,bulan,jumlah) "
                                 "VALUES (%d,%d,%d,'%s','%s',%d)" % (i[0],i[1],i[2],i[3],i[4],i[5],))
                 cursor2.execute(mysql_insert)
                 mysql_db2.commit()
-            print("Fact Peminjaman Behasil Dibuat")
+            print("Fact Peminjaman Tahun Behasil Dibuat")
+
+            for j in get_data_bulan:
+                mysql_insert = ("INSERT INTO fact_peminjaman_bulan(id_dimBuku,id_dimMember,id_dimPerpustakaan,tahun,bulan,tanggal,jumlah) "
+                                "VALUES (%d,%d,%d,'%s','%s','%s',%d)" % (j[0],j[1],j[2],j[3],j[4],j[5],j[6]))
+                cursor2.execute(mysql_insert)
+                mysql_db2.commit()
             # insert ke tabel histori etl di database Datawarehouse untuk merekap nilainny
             #
             mysql_insert = (
@@ -289,6 +321,7 @@ class query:
                 7, start_row_add_peminjaman, end_row_add_peminjaman, 1, formatted_date))
             cursor2.execute(mysql_insert)
             mysql_db2.commit()
+            print("Warehousing Success")
 
         else:
             cursor2.execute(mysql_cek_etl_peminjaman)
@@ -312,8 +345,20 @@ class query:
                 print(get_data)
                 for i in get_data:
                     mysql_insert = (
-                            "INSERT INTO fact_peminjaman_bulan(id_dimBuku,id_dimMember,id_dimPerpustakaan,tahun,bulan,jumlah) "
+                            "INSERT INTO fact_peminjaman_tahun(id_dimBuku,id_dimMember,id_dimPerpustakaan,tahun,bulan,jumlah) "
                                 "VALUES (%d,%d,%d,'%s','%s',%d)" % (i[0],i[1],i[2],i[3],i[4],i[5],))
+                    cursor2.execute(mysql_insert)
+                    mysql_db2.commit()
+
+
+                mysql_get_peminjaman_bulan = ("SELECT buku.`id`, member.`id`, cb_perpustakaan.id, YEAR(peminjaman.`tgl_pinjam`) AS tahun, MONTHNAME(peminjaman.`tgl_pinjam`) AS bulan, DAY(peminjaman.`tgl_pinjam`) AS tanggal, COUNT(id_buku) AS jumlah FROM detail_peminjaman INNER JOIN peminjaman ON detail_peminjaman.`id_peminjaman`=peminjaman.`id` INNER JOIN detail_buku ON detail_peminjaman.`id_detil_buku`=detail_buku.`id`INNER JOIN member ON peminjaman.`id_member`=member.`id` INNER JOIN buku ON detail_buku.`id_buku`=buku.`id` INNER JOIN cb_perpustakaan ON peminjaman.`id_perpustakaan`=cb_perpustakaan.`id` WHERE peminjaman.`id` > "+str(end_row_etl_peminjaman)+" GROUP BY nama_member, bulan, nama_buku ORDER BY MONTH(peminjaman.`tgl_pinjam`)")
+                cursor.execute(mysql_get_peminjaman_bulan)
+                get_data_bulan = cursor.fetchall()
+                print(get_data_bulan)
+                for j in get_data_bulan:
+                    mysql_insert = (
+                                "INSERT INTO fact_peminjaman_bulan(id_dimBuku,id_dimMember,id_dimPerpustakaan,tahun,bulan,tanggal,jumlah) "
+                                "VALUES (%d,%d,%d,'%s','%s','%s',%d)" % (j[0], j[1], j[2], j[3], j[4], j[5], j[6]))
                     cursor2.execute(mysql_insert)
                     mysql_db2.commit()
                 print("nambah data di dim perpustakaan sukses")
@@ -325,3 +370,27 @@ class query:
                 cursor2.execute(mysql_insert)
                 mysql_db2.commit()
                 print("data sudah masuk ke histori")
+
+    def resetWarehouse(self):
+        mysql_delete = ("TRUNCATE TABLE history_etl; ")
+        mysql_alter = ("ALTER TABLE history_etl AUTO_INCREMENT = 1; ")
+        mysql_delete2 = ("TRUNCATE TABLE fact_peminjaman_bulan; ")
+        mysql_alter2 = ("ALTER TABLE fact_peminjaman_bulan AUTO_INCREMENT = 1; ")
+        mysql_delete3 = ("TRUNCATE TABLE fact_peminjaman_tahun; ")
+        mysql_alter3 = ("ALTER TABLE fact_peminjaman_tahun AUTO_INCREMENT = 1; ")
+        mysql_delete4 = ("DELETE FROM dim_buku; ")
+        mysql_delete5 = ("DELETE FROM dim_member; ")
+        mysql_delete6 = ("DELETE FROM dim_perpustakaan; ")
+        cursor2.execute(mysql_delete)
+        cursor2.execute(mysql_delete2)
+        cursor2.execute(mysql_delete3)
+        cursor2.execute(mysql_delete4)
+        cursor2.execute(mysql_delete5)
+        cursor2.execute(mysql_delete6)
+        print("Delete Data in All Tables Success")
+        cursor2.execute(mysql_alter)
+        cursor2.execute(mysql_alter2)
+        cursor2.execute(mysql_alter3)
+        print("Altering Auto Increment Success")
+
+

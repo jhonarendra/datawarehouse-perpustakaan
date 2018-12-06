@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="afa2aa16-a303-4deb-9cbc-82f40f394b21" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="afa2aa16-a303-4deb-9cbc-82f40f394b21" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/main-gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/main-gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queries_etl.py" beforeDir="false" afterPath="$PROJECT_DIR$/queries_etl.py" afterDir="false" />
+    </list>
+>>>>>>> 0a0b7b326d3f0a42176d7bd569fe43435640f0ef
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FUSProjectUsageTrigger">
     <session id="-1818896698">
       <usages-collector id="statistics.lifecycle.project">
@@ -60,77 +68,83 @@
       </usages-collector>
     </session>
   </component>
+=======
+>>>>>>> 0a0b7b326d3f0a42176d7bd569fe43435640f0ef
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queries_etl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1121">
-              <caret line="60" selection-start-line="60" selection-end-line="60" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <marker date="1543800975129" expanded="true" signature="2551:2648" ph="..." />
-                <marker date="1543800975129" expanded="true" signature="2801:2807" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3971">
-              <caret line="212" column="34" selection-start-line="212" selection-start-column="34" selection-end-line="212" selection-end-column="34" />
-              <folding>
-                <element signature="e#196#238#0" expanded="true" />
-                <marker date="1543805335947" expanded="true" signature="2310:2319" ph="..." />
-                <marker date="1543805335947" expanded="true" signature="2620:3023" ph="..." />
-                <marker date="1543805335947" expanded="true" signature="3053:3062" ph="..." />
-                <marker date="1543805335947" expanded="true" signature="7505:7512" ph="..." />
-                <marker date="1543805335947" expanded="true" signature="7534:7543" ph="..." />
-                <marker date="1543805335947" expanded="true" signature="7882:7891" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui-dwh.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3420">
-              <caret line="181" column="46" selection-start-line="181" selection-start-column="46" selection-end-line="181" selection-end-column="46" />
-              <folding>
-                <element signature="e#196#238#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main-gui-dwh.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="196" column="64" selection-start-line="196" selection-start-column="64" selection-end-line="196" selection-end-column="64" />
-              <folding>
-                <element signature="e#196#238#0" expanded="true" />
-                <marker date="1543822884088" expanded="true" signature="10017:10421" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/queries_etl.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-375">
+                  <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+                  <folding>
+                    <element signature="e#0#22#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main-gui.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="108">
+                  <caret line="780" column="28" lean-forward="true" selection-start-line="780" selection-start-column="28" selection-end-line="780" selection-end-column="28" />
+                  <folding>
+                    <element signature="n#!!doc" />
+                    <element signature="e#196#238#0" expanded="true" />
+                    <element signature="e#288#405#0" />
+                    <element signature="e#427#544#0" />
+                    <element signature="e#574#691#0" />
+                    <element signature="e#719#836#0" />
+                    <element signature="e#862#1036#0" />
+                    <element signature="e#5164#5194#0" />
+                    <element signature="e#5517#5546#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/database.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="506">
+                  <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+                  <folding>
+                    <element signature="e#0#22#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main-gui.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-3611">
+                  <caret line="571" column="30" lean-forward="true" selection-start-line="571" selection-start-column="30" selection-end-line="571" selection-end-column="30" />
+                  <folding>
+                    <element signature="n#!!doc" />
+                    <element signature="e#196#238#0" expanded="true" />
+                    <element signature="e#288#405#0" />
+                    <element signature="e#427#544#0" />
+                    <element signature="e#574#691#0" />
+                    <element signature="e#719#836#0" />
+                    <element signature="e#862#1036#0" />
+                    <element signature="e#5164#5194#0" />
+                    <element signature="e#5517#5546#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -138,6 +152,17 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>combobo</find>
+      <find>loadData</find>
+      <find>peminjaman_bulan</find>
+      <find>5</find>
+      <find>widget_4</find>
+      <find>widget_2</find>
+      <find>label</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -149,7 +174,6 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/new.py" />
         <option value="$PROJECT_DIR$/opencv.py" />
-        <option value="$PROJECT_DIR$/database.py" />
         <option value="$PROJECT_DIR$/queries.py" />
         <option value="$PROJECT_DIR$/test_gui.py" />
         <option value="$PROJECT_DIR$/sql-queries.py" />
@@ -157,16 +181,19 @@
         <option value="$PROJECT_DIR$/main_gui.py" />
         <option value="$PROJECT_DIR$/backup_qt.py" />
         <option value="$PROJECT_DIR$/gui_baru.py" />
-        <option value="$PROJECT_DIR$/queries_etl.py" />
         <option value="$PROJECT_DIR$/gui.py" />
         <option value="$PROJECT_DIR$/gui-dwh.py" />
         <option value="$PROJECT_DIR$/main-gui-dwh.py" />
+        <option value="$PROJECT_DIR$/warehouse_function.py" />
+        <option value="$PROJECT_DIR$/database.py" />
+        <option value="$PROJECT_DIR$/queries_etl.py" />
+        <option value="$PROJECT_DIR$/main-gui.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="595" />
-    <option name="y" value="65" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="845" />
     <option name="height" value="770" />
   </component>
@@ -182,8 +209,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="project-dwh" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-dwh" type="462c0819:PsiDirectoryNode" />
+              <item name="ETL-Datawarehouse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ETL-Datawarehouse" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -194,7 +221,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OPENCV/image-pattern-recognition" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -208,7 +236,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main-gui-dwh">
+  <component name="RunManager" selected="Python.main-gui">
     <configuration name="gui-dwh" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="project-dwh" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -251,27 +279,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gui_baru" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="project-dwh" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gui_baru.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main-gui-dwh" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="project-dwh" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -285,6 +292,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main-gui-dwh.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main-gui" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="project-dwh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main-gui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -317,17 +345,17 @@
     <list>
       <item itemvalue="Python.gui" />
       <item itemvalue="Python.main_gui" />
-      <item itemvalue="Python.gui_baru" />
       <item itemvalue="Python.gui-dwh" />
       <item itemvalue="Python.main-gui-dwh" />
+      <item itemvalue="Python.main-gui" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main-gui" />
         <item itemvalue="Python.main-gui-dwh" />
         <item itemvalue="Python.gui-dwh" />
         <item itemvalue="Python.gui" />
         <item itemvalue="Python.main_gui" />
-        <item itemvalue="Python.gui_baru" />
       </list>
     </recent_temporary>
   </component>
@@ -345,15 +373,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+>>>>>>> 0a0b7b326d3f0a42176d7bd569fe43435640f0ef
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15730338" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.15699404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.1930295" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3994638" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36764705" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -385,9 +418,6 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <default-breakpoints>
@@ -402,6 +432,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/query.py" />
     <entry file="file://$PROJECT_DIR$/opencv.py" />
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/mysql/connector/cursor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -416,6 +447,12 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/mysql/connector/cursor.py" />
+    <entry file="file://$PROJECT_DIR$/queries.py" />
+    <entry file="file://$PROJECT_DIR$/../../NLP/summarization/project-summarizer/gui.py" />
+    <entry file="file://$PROJECT_DIR$/test_gui.py" />
+>>>>>>> 0a0b7b326d3f0a42176d7bd569fe43435640f0ef
     <entry file="file://$PROJECT_DIR$/main.py" />
     <entry file="file://$PROJECT_DIR$/sql-queries.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -424,6 +461,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/mysql/connector/connection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
@@ -438,6 +476,11 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/mysql/connector/connection.py" />
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/mysql/connector/cursor.py" />
+    <entry file="file://$PROJECT_DIR$/backup.py" />
+>>>>>>> 0a0b7b326d3f0a42176d7bd569fe43435640f0ef
     <entry file="file://$PROJECT_DIR$/backup_qt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
@@ -459,16 +502,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/gui-dwh2.py">
+    <entry file="file://D:/gui-dwh2.py" />
+    <entry file="file://$PROJECT_DIR$/main_gui.py" />
+    <entry file="file://$PROJECT_DIR$/gui-dwh.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1957">
-          <caret line="103" column="54" lean-forward="true" selection-start-line="102" selection-start-column="8" selection-end-line="103" selection-end-column="54" />
+        <state relative-caret-position="4163">
+          <caret line="181" column="46" selection-start-line="181" selection-start-column="46" selection-end-line="181" selection-end-column="46" />
+          <folding>
+            <element signature="e#196#238#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/database.py">
+=======
+    <entry file="file://$PROJECT_DIR$/gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="e#196#238#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main-gui-dwh.py">
+>>>>>>> 0a0b7b326d3f0a42176d7bd569fe43435640f0ef
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="196" column="52" lean-forward="true" selection-start-line="196" selection-start-column="52" selection-end-line="196" selection-end-column="52" />
+          <folding>
+            <element signature="e#196#238#0" expanded="true" />
+            <element signature="e#2260#2470#0" />
+            <element signature="e#2509#2683#0" />
+            <element signature="e#10452#10709#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warehouse_function.py" />
+    <entry file="file://$PROJECT_DIR$/qt-gui/main-gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="280" column="47" lean-forward="true" selection-start-line="280" selection-start-column="47" selection-end-line="287" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="506">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -477,42 +561,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/queries_etl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="-375">
+          <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-            <marker date="1543800975129" expanded="true" signature="2551:2648" ph="..." />
-            <marker date="1543800975129" expanded="true" signature="2801:2807" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3971">
-          <caret line="212" column="34" selection-start-line="212" selection-start-column="34" selection-end-line="212" selection-end-column="34" />
-          <folding>
-            <element signature="e#196#238#0" expanded="true" />
-            <marker date="1543805335947" expanded="true" signature="2310:2319" ph="..." />
-            <marker date="1543805335947" expanded="true" signature="2620:3023" ph="..." />
-            <marker date="1543805335947" expanded="true" signature="3053:3062" ph="..." />
-            <marker date="1543805335947" expanded="true" signature="7505:7512" ph="..." />
-            <marker date="1543805335947" expanded="true" signature="7534:7543" ph="..." />
-            <marker date="1543805335947" expanded="true" signature="7882:7891" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui-dwh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3420">
-          <caret line="181" column="46" selection-start-line="181" selection-start-column="46" selection-end-line="181" selection-end-column="46" />
-          <folding>
-            <element signature="e#196#238#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/test_gui.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="912">
@@ -542,12 +599,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main-gui-dwh.py">
+=======
+    <entry file="file://$PROJECT_DIR$/main-gui.py">
+>>>>>>> 0a0b7b326d3f0a42176d7bd569fe43435640f0ef
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="196" column="64" selection-start-line="196" selection-start-column="64" selection-end-line="196" selection-end-column="64" />
+        <state relative-caret-position="108">
+          <caret line="780" column="28" lean-forward="true" selection-start-line="780" selection-start-column="28" selection-end-line="780" selection-end-column="28" />
           <folding>
+            <element signature="n#!!doc" />
             <element signature="e#196#238#0" expanded="true" />
-            <marker date="1543822884088" expanded="true" signature="10017:10421" ph="..." />
+            <element signature="e#288#405#0" />
+            <element signature="e#427#544#0" />
+            <element signature="e#574#691#0" />
+            <element signature="e#719#836#0" />
+            <element signature="e#862#1036#0" />
+            <element signature="e#5164#5194#0" />
+            <element signature="e#5517#5546#0" />
           </folding>
         </state>
       </provider>

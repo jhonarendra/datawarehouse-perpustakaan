@@ -1,0 +1,13 @@
+ini value
+SELECT nama_member, bulan, COUNT(*) AS jumlah_peminjaman
+FROM fact_peminjaman_bulan
+INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id`
+WHERE nama_member = "agus"
+AND tahun = 2018
+GROUP BY bulan
+
+ini query row
+SELECT nama_member
+FROM fact_peminjaman_bulan
+INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id`
+GROUP BY nama_member

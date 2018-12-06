@@ -22,8 +22,5 @@ try:
 
 except Error as e:
     print(e)
-# finally:
-#     mysql_db.close()
-#     mysql_db2.close()
 
 
