@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="afa2aa16-a303-4deb-9cbc-82f40f394b21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/main-gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queries_etl.py" beforeDir="false" afterPath="$PROJECT_DIR$/queries_etl.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,84 +12,53 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/queries_etl.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1932">
-                  <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/main-gui.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="108">
-                  <caret line="492" column="19" selection-start-line="492" selection-start-column="19" selection-end-line="492" selection-end-column="19" />
-                  <folding>
-                    <element signature="n#!!doc" />
-                    <element signature="e#196#238#0" expanded="true" />
-                    <element signature="e#288#405#0" />
-                    <element signature="e#427#544#0" />
-                    <element signature="e#574#691#0" />
-                    <element signature="e#719#836#0" />
-                    <element signature="e#862#1036#0" />
-                    <element signature="e#5164#5194#0" />
-                    <element signature="e#5517#5546#0" />
-                    <element signature="e#9521#9550#0" />
-                    <element signature="e#10270#10302#0" />
-                    <element signature="e#10640#10671#0" />
-                    <element signature="e#14898#18966#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="344">
-                  <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/main-gui.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-369">
-                  <caret line="481" column="26" selection-start-line="481" selection-start-column="26" selection-end-line="481" selection-end-column="26" />
-                  <folding>
-                    <element signature="n#!!doc" />
-                    <element signature="e#196#238#0" expanded="true" />
-                    <element signature="e#288#405#0" />
-                    <element signature="e#427#544#0" />
-                    <element signature="e#574#691#0" />
-                    <element signature="e#719#836#0" />
-                    <element signature="e#862#1036#0" />
-                    <element signature="e#5164#5194#0" />
-                    <element signature="e#5517#5546#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queries_etl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2323">
+              <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main-gui.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="32" column="78" lean-forward="true" selection-start-line="32" selection-start-column="78" selection-end-line="32" selection-end-column="78" />
+              <folding>
+                <element signature="n#!!doc" />
+                <element signature="e#196#238#0" expanded="true" />
+                <element signature="e#288#405#0" />
+                <element signature="e#427#544#0" />
+                <element signature="e#574#691#0" />
+                <element signature="e#719#836#0" />
+                <element signature="e#862#1036#0" />
+                <element signature="e#5164#5194#0" />
+                <element signature="e#5517#5546#0" />
+                <element signature="e#30647#38130#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -328,7 +295,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36764705" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36764705" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -456,8 +423,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/queries_etl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1932">
-          <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
+        <state relative-caret-position="2323">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -466,7 +433,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
+        <state relative-caret-position="506">
           <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
@@ -476,8 +443,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main-gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="492" column="19" selection-start-line="492" selection-start-column="19" selection-end-line="492" selection-end-column="19" />
+        <state relative-caret-position="276">
+          <caret line="32" column="78" lean-forward="true" selection-start-line="32" selection-start-column="78" selection-end-line="32" selection-end-column="78" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#196#238#0" expanded="true" />
@@ -488,10 +455,7 @@
             <element signature="e#862#1036#0" />
             <element signature="e#5164#5194#0" />
             <element signature="e#5517#5546#0" />
-            <element signature="e#9521#9550#0" />
-            <element signature="e#10270#10302#0" />
-            <element signature="e#10640#10671#0" />
-            <element signature="e#14898#18966#0" />
+            <element signature="e#30647#38130#0" />
           </folding>
         </state>
       </provider>
