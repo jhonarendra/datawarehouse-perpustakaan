@@ -361,13 +361,6 @@ class Ui_MainWindow(object):
         self.comboBox_2.setItemText(0, _translate("MainWindow", "Warehouse"))
         self.label_4.setText(_translate("MainWindow", "WAREHOUSE PERPUSTAKAAN"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Database"))
-        # self.comboPerpus.setCurrentText(_translate("MainWindow", "Perpustakaan Bersama"))
-        # self.comboPerpus.setItemText(0, _translate("MainWindow", "Perpustakaan Bersama"))
-        # self.comboPerpus.setItemText(1, _translate("MainWindow", "Perpustakaan Jurusan"))
-        # self.comboTahun.setCurrentText(_translate("MainWindow", "2017"))
-        # self.comboTahun.setItemText(0, _translate("MainWindow", "2017"))
-        # self.comboTahun.setItemText(1, _translate("MainWindow", "2018"))
-        # self.comboTahun.setItemText(2, _translate("MainWindow", "2019"))
         self.buttonLoad.setText(_translate("MainWindow", "Load Data"))
         self.buttonReset.setText(_translate("MainWindow", "Reset Data"))
         self.label.setText(_translate("MainWindow", "WAREHOUSE PEMINJAMAN TAHUN"))
@@ -424,6 +417,8 @@ class Ui_MainWindow(object):
                 header.setSectionResizeMode(4, QtWidgets.QHeaderView.Stretch)
 
     def comboboxPerpustaka(self):
+        self.comboPerpus.clear()
+        self.comboPerpus_2.clear()
         result = self.queries_etl.mysql_db_etl(mysql_combobox_perpus)
         # print(result)
         for i in range(0, len(result)):
@@ -432,6 +427,8 @@ class Ui_MainWindow(object):
             self.comboPerpus_2.addItem(result[i][0])
 
     def comboboxTahun(self):
+        self.comboTahun.clear()
+        self.comboTahun_2.clear()
         result = self.queries_etl.mysql_db_etl(mysql_combobox_tahun)
         # print(result)
         for i in range(0, len(result)):
@@ -439,6 +436,7 @@ class Ui_MainWindow(object):
             self.comboTahun_2.addItem(result[i][0])
 
     def comboboxBulan(self):
+        self.comboBulan.clear()
         result = self.queries_etl.mysql_db_etl(mysql_combobox_bulan)
         for i in range(0, len(result)):
             self.comboBulan.addItem(result[i][0])
@@ -454,12 +452,16 @@ class Ui_MainWindow(object):
 
     def extractData(self):
         self.queries_etl.check_member(mysql_check_member)
+        print("cek_buku")
         self.queries_etl.check_buku(mysql_check_buku)
         self.queries_etl.check_cabang_perpustakaan(mysql_check_perpustakaan)
         self.queries_etl.check_fact_peminjaman(mysql_check_peminjaman)
         for i in range(0, 100):
             self.tableWidget.removeRow(0)
         self.loadData()
+        self.comboboxBulan()
+        self.comboboxPerpustaka()
+        self.comboboxTahun()
 
     def selectDataTahun(self):
         for i in range(0, 100):

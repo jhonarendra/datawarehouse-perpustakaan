@@ -150,7 +150,7 @@ class query:
                 mysql_db2.commit()
                 print("Data Member Baru Masuk ke Histori")
 
-    def check_buku(self,data):
+    def check_buku(self, data):
         print("/n")
         print("cek data buku baru")
         cursor2.execute(data)
