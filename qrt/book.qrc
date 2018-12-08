@@ -2,6 +2,9 @@
   <qresource prefix="iconbook">
     <file>book2.png</file>
   </qresource>
+  <qresource prefix="sql-query">
+    <file>sql_query.png</file>
+  </qresource>
   <qresource prefix="setting">
     <file>download (1).png</file>
   </qresource>

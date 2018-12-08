@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1149</width>
-    <height>809</height>
+    <width>1288</width>
+    <height>907</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1141</width>
-      <height>781</height>
+      <width>1281</width>
+      <height>881</height>
      </rect>
     </property>
     <property name="font">
@@ -36,7 +36,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="icon">
@@ -51,14 +51,14 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>180</y>
-        <width>1061</width>
+        <y>240</y>
+        <width>1231</width>
         <height>441</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>10</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="frameShape">
@@ -88,7 +88,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>670</y>
+        <y>760</y>
         <width>191</width>
         <height>51</height>
        </rect>
@@ -119,8 +119,8 @@
      <widget class="QPushButton" name="buttonResetWH">
       <property name="geometry">
        <rect>
-        <x>860</x>
-        <y>670</y>
+        <x>1030</x>
+        <y>760</y>
         <width>221</width>
         <height>51</height>
        </rect>
@@ -155,7 +155,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>130</y>
+        <y>190</y>
         <width>51</width>
         <height>31</height>
        </rect>
@@ -175,10 +175,15 @@
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>130</y>
+        <y>180</y>
         <width>191</width>
-        <height>31</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
       </property>
       <property name="tabletTracking">
        <bool>false</bool>
@@ -188,7 +193,7 @@
       </property>
       <item>
        <property name="text">
-        <string>Perpustakaan</string>
+        <string> Perpustakaan</string>
        </property>
       </item>
      </widget>
@@ -196,7 +201,7 @@
       <property name="geometry">
        <rect>
         <x>310</x>
-        <y>130</y>
+        <y>190</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -216,22 +221,27 @@
       <property name="geometry">
        <rect>
         <x>350</x>
-        <y>130</y>
-        <width>191</width>
-        <height>31</height>
+        <y>180</y>
+        <width>201</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
       </property>
       <item>
        <property name="text">
-        <string>Warehouse</string>
+        <string> Warehouse</string>
        </property>
       </item>
      </widget>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>30</y>
+        <x>470</x>
+        <y>70</y>
         <width>471</width>
         <height>51</height>
        </rect>
@@ -249,8 +259,8 @@
      <widget class="QPushButton" name="buttonRefresh">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>670</y>
+        <x>250</x>
+        <y>760</y>
         <width>191</width>
         <height>51</height>
        </rect>
@@ -278,8 +288,8 @@
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>20</y>
+        <x>410</x>
+        <y>60</y>
         <width>51</width>
         <height>71</height>
        </rect>
@@ -307,9 +317,9 @@
      <widget class="QComboBox" name="comboPerpus">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>120</y>
-        <width>211</width>
+        <x>40</x>
+        <y>200</y>
+        <width>231</width>
         <height>41</height>
        </rect>
       </property>
@@ -335,9 +345,9 @@
      <widget class="QComboBox" name="comboTahun">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>210</y>
-        <width>211</width>
+        <x>40</x>
+        <y>290</y>
+        <width>231</width>
         <height>41</height>
        </rect>
       </property>
@@ -368,8 +378,8 @@
      <widget class="QPushButton" name="buttonLoad">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>600</y>
+        <x>40</x>
+        <y>750</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -398,8 +408,8 @@
      <widget class="QPushButton" name="buttonReset">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>530</y>
+        <x>40</x>
+        <y>670</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -428,8 +438,8 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>10</y>
+        <x>360</x>
+        <y>30</y>
         <width>541</width>
         <height>51</height>
        </rect>
@@ -444,24 +454,105 @@
        <string>WAREHOUSE PEMINJAMAN TAHUN</string>
       </property>
      </widget>
-     <widget class="QTabWidget" name="tabWidget_2">
+     <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>70</y>
-        <width>831</width>
-        <height>581</height>
+        <x>90</x>
+        <y>170</y>
+        <width>171</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
        </font>
       </property>
-      <property name="currentIndex">
-       <number>1</number>
+      <property name="text">
+       <string>Pilih Perpustakaan</string>
       </property>
-      <widget class="QWidget" name="tab_3">
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>260</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Pilih Tahun</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>170</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="../qrt/book.qrc">:/date/date.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>260</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="../qrt/book.qrc">:/date/date.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QTabWidget" name="tabWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>130</y>
+        <width>941</width>
+        <height>691</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_7">
        <attribute name="icon">
         <iconset>
          <normalon>:/person/grab-vector-graphic-person-icon--imagebasket-13.png</normalon>
@@ -470,13 +561,13 @@
        <attribute name="title">
         <string>Member</string>
        </attribute>
-       <widget class="QTableWidget" name="tableWidget_2">
+       <widget class="QTableWidget" name="tableWidget_6">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>831</width>
-          <height>551</height>
+          <width>941</width>
+          <height>661</height>
          </rect>
         </property>
         <property name="font">
@@ -507,7 +598,7 @@
         </item>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_4">
+      <widget class="QWidget" name="tab_8">
        <attribute name="icon">
         <iconset>
          <normalon>:/book2/book3.png</normalon>
@@ -516,13 +607,13 @@
        <attribute name="title">
         <string>Buku</string>
        </attribute>
-       <widget class="QTableWidget" name="tableWidget_3">
+       <widget class="QTableWidget" name="tableWidget_7">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>831</width>
-          <height>551</height>
+          <width>1121</width>
+          <height>591</height>
          </rect>
         </property>
         <property name="font">
@@ -554,94 +645,6 @@
        </widget>
       </widget>
      </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>90</y>
-        <width>171</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Pilih Perpustakaan</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>180</y>
-        <width>111</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Pilih Tahun</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>90</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="../qrt/book.qrc">:/date/date.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>180</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="../qrt/book.qrc">:/date/date.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <zorder>tabWidget_2</zorder>
-     <zorder>comboPerpus</zorder>
-     <zorder>comboTahun</zorder>
-     <zorder>buttonLoad</zorder>
-     <zorder>buttonReset</zorder>
-     <zorder>label</zorder>
-     <zorder>label_6</zorder>
-     <zorder>label_7</zorder>
-     <zorder>label_15</zorder>
-     <zorder>label_16</zorder>
     </widget>
     <widget class="QWidget" name="tabBulan">
      <attribute name="icon">
@@ -655,8 +658,8 @@
      <widget class="QPushButton" name="buttonReset_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>530</y>
+        <x>40</x>
+        <y>670</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -685,9 +688,9 @@
      <widget class="QComboBox" name="comboBulan">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>300</y>
-        <width>211</width>
+        <x>40</x>
+        <y>380</y>
+        <width>231</width>
         <height>41</height>
        </rect>
       </property>
@@ -763,9 +766,9 @@
      <widget class="QComboBox" name="comboPerpus_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>120</y>
-        <width>211</width>
+        <x>40</x>
+        <y>200</y>
+        <width>231</width>
         <height>41</height>
        </rect>
       </property>
@@ -791,9 +794,9 @@
      <widget class="QComboBox" name="comboTahun_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>210</y>
-        <width>211</width>
+        <x>40</x>
+        <y>290</y>
+        <width>231</width>
         <height>41</height>
        </rect>
       </property>
@@ -824,22 +827,22 @@
      <widget class="QTabWidget" name="tabWidget_3">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>70</y>
-        <width>831</width>
-        <height>581</height>
+        <x>310</x>
+        <y>130</y>
+        <width>941</width>
+        <height>691</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="icon">
@@ -855,8 +858,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>831</width>
-          <height>551</height>
+          <width>941</width>
+          <height>661</height>
          </rect>
         </property>
         <property name="font">
@@ -901,8 +904,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>831</width>
-          <height>551</height>
+          <width>1121</width>
+          <height>591</height>
          </rect>
         </property>
         <property name="font">
@@ -937,8 +940,8 @@
      <widget class="QPushButton" name="buttonLoad_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>600</y>
+        <x>40</x>
+        <y>750</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -967,8 +970,8 @@
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>90</y>
+        <x>90</x>
+        <y>170</y>
         <width>171</width>
         <height>21</height>
        </rect>
@@ -987,8 +990,8 @@
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>180</y>
+        <x>90</x>
+        <y>260</y>
         <width>171</width>
         <height>21</height>
        </rect>
@@ -1007,8 +1010,8 @@
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>270</y>
+        <x>90</x>
+        <y>350</y>
         <width>141</width>
         <height>21</height>
        </rect>
@@ -1027,8 +1030,8 @@
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>10</y>
+        <x>360</x>
+        <y>30</y>
         <width>521</width>
         <height>51</height>
        </rect>
@@ -1046,8 +1049,8 @@
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>90</y>
+        <x>50</x>
+        <y>170</y>
         <width>21</width>
         <height>21</height>
        </rect>
@@ -1065,8 +1068,8 @@
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>180</y>
+        <x>50</x>
+        <y>260</y>
         <width>21</width>
         <height>21</height>
        </rect>
@@ -1084,8 +1087,8 @@
      <widget class="QLabel" name="label_14">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>270</y>
+        <x>50</x>
+        <y>350</y>
         <width>21</width>
         <height>21</height>
        </rect>
@@ -1108,7 +1111,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1149</width>
+     <width>1288</width>
      <height>26</height>
     </rect>
    </property>
