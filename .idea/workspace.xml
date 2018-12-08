@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00e66245-13ce-4847-ab81-b535f9c54180" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-dwh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project-dwh.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/main-gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qrt/book.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/qrt/book.qrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt-gui/dwh-gui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/qt-gui/dwh-gui.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui_final.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +15,7 @@
     <session id="195553151">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.3" value="2" />
@@ -53,7 +49,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main-gui.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
@@ -80,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/final/gui_final.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="925" column="21" selection-start-line="925" selection-start-column="21" selection-end-line="925" selection-end-column="21" />
+            <state relative-caret-position="16">
+              <caret line="897" column="30" lean-forward="true" selection-start-line="897" selection-start-column="30" selection-end-line="897" selection-end-column="30" />
               <folding>
                 <element signature="e#198#240#0" expanded="true" />
               </folding>
@@ -193,7 +189,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main-gui">
+  <component name="RunManager" selected="Python.gui_final (2)">
     <configuration name="gui_final (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="project-dwh" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -308,8 +304,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main-gui" />
         <item itemvalue="Python.gui_final (2)" />
+        <item itemvalue="Python.main-gui" />
         <item itemvalue="Python.gui_final" />
         <item itemvalue="Python.gui_final (1)" />
       </list>
@@ -330,13 +326,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21017845" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4544236" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4544236" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3994638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -373,16 +370,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/qrt/output.py" />
-    <entry file="file://$PROJECT_DIR$/final/gui_final.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="925" column="21" selection-start-line="925" selection-start-column="21" selection-end-line="925" selection-end-column="21" />
-          <folding>
-            <element signature="e#198#240#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main-gui.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -404,6 +391,16 @@
             <element signature="e#30288#38099#0" />
             <element signature="e#38136#38225#0" />
             <element signature="e#38265#38322#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/final/gui_final.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="897" column="30" lean-forward="true" selection-start-line="897" selection-start-column="30" selection-end-line="897" selection-end-column="30" />
+          <folding>
+            <element signature="e#198#240#0" expanded="true" />
           </folding>
         </state>
       </provider>
