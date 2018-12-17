@@ -442,7 +442,7 @@ class Ui_MainWindow(object):
         # self.comboTahun.setItemText(1, _translate("MainWindow", "2018"))
         # self.comboTahun.setItemText(2, _translate("MainWindow", "2019"))
         self.buttonLoad.setText(_translate("MainWindow", "Load Data"))
-        self.buttonReset.setText(_translate("MainWindow", "Reset Data"))
+        self.buttonReset.setText(_translate("MainWindow", "Refresh Data"))
         self.label.setText(_translate("MainWindow", "WAREHOUSE PEMINJAMAN TAHUN"))
         self.label_6.setText(_translate("MainWindow", "Pilih Perpustakaan"))
         self.label_7.setText(_translate("MainWindow", "Pilih Tahun"))
@@ -540,9 +540,13 @@ class Ui_MainWindow(object):
 
     def comboboxBulan(self):
         self.comboBulan.clear()
-        result = self.queries_etl.mysql_db_etl(mysql_combobox_bulan)
+        result = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                        'October', 'November', 'December']
+        # result = self.queries_etl.mysql_db_etl(mysql_combobox_bulan)
         for i in range(0, len(result)):
-            self.comboBulan.addItem(result[i][0])
+            self.comboBulan.addItem(result[i])
+            # self.comboBulan.addItem(result[i][0])
+
 
     def resetData(self):
         # query_row = ("SELECT nama_member FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` GROUP BY nama_member")
@@ -761,6 +765,7 @@ class Ui_MainWindow(object):
         print(value_perpus)
         value_tahun = self.comboTahun_2.currentText()
         value_bulan = self.comboBulan.currentText()
+        print("Bulan apa:",value_bulan)
 
         query_row = (
                     "SELECT nama_member FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` INNER JOIN dim_perpustakaan ON fact_peminjaman_bulan.`id_dimPerpustakaan`=dim_perpustakaan.`id` WHERE nama_perpustakaan = '" + value_perpus + "' AND tahun = '" + value_tahun + "' AND bulan = '" + value_bulan + "'  GROUP BY nama_member")

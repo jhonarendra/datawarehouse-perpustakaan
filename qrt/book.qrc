@@ -8,6 +8,9 @@
   <qresource prefix="setting">
     <file>download (1).png</file>
   </qresource>
+  <qresource prefix="excel">
+    <file>icon-excel</file>
+  </qresource>
   <qresource prefix="show">
     <file>images (2).png</file>
   </qresource>
