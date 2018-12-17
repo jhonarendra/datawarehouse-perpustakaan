@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui_final.ui'
+# Form implementation generated from reading ui file 'gui_final_gunaya.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from queries_etl import *
+from openpyxl import *
 
 mysql_check_member = ('''
                     SELECT * FROM history_etl WHERE id_tabel = 5
@@ -40,7 +41,7 @@ mysql_combobox_bulan = ("SELECT bulan FROM fact_peminjaman_bulan GROUP BY bulan 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1288, 907)
+        MainWindow.resize(1188, 740)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/iconbook/book2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -56,7 +57,7 @@ class Ui_MainWindow(object):
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.tableWidget = QtWidgets.QTableWidget(self.tab)
-        self.tableWidget.setGeometry(QtCore.QRect(20, 240, 1231, 441))
+        self.tableWidget.setGeometry(QtCore.QRect(20, 240, 1231, 271))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.tableWidget.setFont(font)
@@ -66,7 +67,7 @@ class Ui_MainWindow(object):
         self.tableWidget.setColumnCount(5)
         self.tableWidget.setObjectName("tableWidget")
         self.buttonExtract = QtWidgets.QPushButton(self.tab)
-        self.buttonExtract.setGeometry(QtCore.QRect(20, 760, 191, 51))
+        self.buttonExtract.setGeometry(QtCore.QRect(20, 600, 191, 51))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.buttonExtract.setFont(font)
@@ -128,7 +129,7 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.buttonRefresh = QtWidgets.QPushButton(self.tab)
-        self.buttonRefresh.setGeometry(QtCore.QRect(250, 760, 191, 51))
+        self.buttonRefresh.setGeometry(QtCore.QRect(250, 600, 191, 51))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.buttonRefresh.setFont(font)
@@ -166,7 +167,7 @@ class Ui_MainWindow(object):
         self.comboTahun.addItem("")
         self.comboTahun.addItem("")
         self.buttonLoad = QtWidgets.QPushButton(self.tab_2)
-        self.buttonLoad.setGeometry(QtCore.QRect(40, 670, 211, 51))
+        self.buttonLoad.setGeometry(QtCore.QRect(40, 520, 211, 51))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -177,7 +178,7 @@ class Ui_MainWindow(object):
         self.buttonLoad.setIconSize(QtCore.QSize(30, 30))
         self.buttonLoad.setObjectName("buttonLoad")
         self.buttonReset = QtWidgets.QPushButton(self.tab_2)
-        self.buttonReset.setGeometry(QtCore.QRect(40, 590, 211, 51))
+        self.buttonReset.setGeometry(QtCore.QRect(40, 440, 211, 51))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -221,7 +222,7 @@ class Ui_MainWindow(object):
         self.label_16.setScaledContents(True)
         self.label_16.setObjectName("label_16")
         self.tabWidget_4 = QtWidgets.QTabWidget(self.tab_2)
-        self.tabWidget_4.setGeometry(QtCore.QRect(310, 130, 941, 691))
+        self.tabWidget_4.setGeometry(QtCore.QRect(310, 130, 941, 521))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.tabWidget_4.setFont(font)
@@ -230,7 +231,7 @@ class Ui_MainWindow(object):
         self.tab_7 = QtWidgets.QWidget()
         self.tab_7.setObjectName("tab_7")
         self.tableWidget_6 = QtWidgets.QTableWidget(self.tab_7)
-        self.tableWidget_6.setGeometry(QtCore.QRect(0, 0, 941, 661))
+        self.tableWidget_6.setGeometry(QtCore.QRect(0, 0, 941, 491))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.tableWidget_6.setFont(font)
@@ -258,7 +259,7 @@ class Ui_MainWindow(object):
         icon7.addPixmap(QtGui.QPixmap(":/book2/book3.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.tabWidget_4.addTab(self.tab_8, icon7, "")
         self.buttonExcel_1 = QtWidgets.QPushButton(self.tab_2)
-        self.buttonExcel_1.setGeometry(QtCore.QRect(40, 750, 211, 51))
+        self.buttonExcel_1.setGeometry(QtCore.QRect(40, 600, 211, 51))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -274,7 +275,7 @@ class Ui_MainWindow(object):
         self.tabBulan = QtWidgets.QWidget()
         self.tabBulan.setObjectName("tabBulan")
         self.buttonReset_2 = QtWidgets.QPushButton(self.tabBulan)
-        self.buttonReset_2.setGeometry(QtCore.QRect(40, 590, 211, 51))
+        self.buttonReset_2.setGeometry(QtCore.QRect(40, 460, 211, 51))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -318,7 +319,7 @@ class Ui_MainWindow(object):
         self.comboTahun_2.addItem("")
         self.comboTahun_2.addItem("")
         self.tabWidget_3 = QtWidgets.QTabWidget(self.tabBulan)
-        self.tabWidget_3.setGeometry(QtCore.QRect(310, 130, 941, 691))
+        self.tabWidget_3.setGeometry(QtCore.QRect(310, 130, 861, 541))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.tabWidget_3.setFont(font)
@@ -327,7 +328,7 @@ class Ui_MainWindow(object):
         self.tab_5 = QtWidgets.QWidget()
         self.tab_5.setObjectName("tab_5")
         self.tableWidget_4 = QtWidgets.QTableWidget(self.tab_5)
-        self.tableWidget_4.setGeometry(QtCore.QRect(0, 0, 941, 661))
+        self.tableWidget_4.setGeometry(QtCore.QRect(0, 0, 851, 511))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.tableWidget_4.setFont(font)
@@ -351,7 +352,7 @@ class Ui_MainWindow(object):
         self.tableWidget_5.setItem(0, 0, item)
         self.tabWidget_3.addTab(self.tab_6, icon7, "")
         self.buttonLoad_2 = QtWidgets.QPushButton(self.tabBulan)
-        self.buttonLoad_2.setGeometry(QtCore.QRect(40, 670, 211, 51))
+        self.buttonLoad_2.setGeometry(QtCore.QRect(40, 540, 211, 51))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -409,7 +410,7 @@ class Ui_MainWindow(object):
         self.label_14.setScaledContents(True)
         self.label_14.setObjectName("label_14")
         self.buttonExcel_2 = QtWidgets.QPushButton(self.tabBulan)
-        self.buttonExcel_2.setGeometry(QtCore.QRect(40, 750, 211, 51))
+        self.buttonExcel_2.setGeometry(QtCore.QRect(40, 620, 211, 51))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -420,7 +421,7 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.tabBulan, icon9, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1288, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1188, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -434,7 +435,7 @@ class Ui_MainWindow(object):
         self.loadData()
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
         self.tabWidget_4.setCurrentIndex(0)
         self.tabWidget_3.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -451,13 +452,13 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "WAREHOUSE PERPUSTAKAAN"))
         self.buttonRefresh.setText(_translate("MainWindow", " Refresh"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Database"))
-        self.comboPerpus.setCurrentText(_translate("MainWindow", "Perpustakaan Bersama"))
-        self.comboPerpus.setItemText(0, _translate("MainWindow", "Perpustakaan Bersama"))
-        self.comboPerpus.setItemText(1, _translate("MainWindow", "Perpustakaan Jurusan"))
-        self.comboTahun.setCurrentText(_translate("MainWindow", "2017"))
-        self.comboTahun.setItemText(0, _translate("MainWindow", "2017"))
-        self.comboTahun.setItemText(1, _translate("MainWindow", "2018"))
-        self.comboTahun.setItemText(2, _translate("MainWindow", "2019"))
+        # self.comboPerpus.setCurrentText(_translate("MainWindow", "Perpustakaan Bersama"))
+        # self.comboPerpus.setItemText(0, _translate("MainWindow", "Perpustakaan Bersama"))
+        # self.comboPerpus.setItemText(1, _translate("MainWindow", "Perpustakaan Jurusan"))
+        # self.comboTahun.setCurrentText(_translate("MainWindow", "2017"))
+        # self.comboTahun.setItemText(0, _translate("MainWindow", "2017"))
+        # self.comboTahun.setItemText(1, _translate("MainWindow", "2018"))
+        # self.comboTahun.setItemText(2, _translate("MainWindow", "2019"))
         self.buttonLoad.setText(_translate("MainWindow", "Load Data"))
         self.buttonReset.setText(_translate("MainWindow", "Reset Data"))
         self.label.setText(_translate("MainWindow", "WAREHOUSE PEMINJAMAN TAHUN"))
@@ -476,26 +477,26 @@ class Ui_MainWindow(object):
         self.buttonExcel_1.setText(_translate("MainWindow", "Export Excel"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Warehouse Tahun"))
         self.buttonReset_2.setText(_translate("MainWindow", "Reset Data"))
-        self.comboBulan.setCurrentText(_translate("MainWindow", "Januari"))
-        self.comboBulan.setItemText(0, _translate("MainWindow", "Januari"))
-        self.comboBulan.setItemText(1, _translate("MainWindow", "Februari"))
-        self.comboBulan.setItemText(2, _translate("MainWindow", "Maret"))
-        self.comboBulan.setItemText(3, _translate("MainWindow", "April"))
-        self.comboBulan.setItemText(4, _translate("MainWindow", "Mei"))
-        self.comboBulan.setItemText(5, _translate("MainWindow", "Juni"))
-        self.comboBulan.setItemText(6, _translate("MainWindow", "Juli"))
-        self.comboBulan.setItemText(7, _translate("MainWindow", "Agustus"))
-        self.comboBulan.setItemText(8, _translate("MainWindow", "September"))
-        self.comboBulan.setItemText(9, _translate("MainWindow", "Oktober"))
-        self.comboBulan.setItemText(10, _translate("MainWindow", "November"))
-        self.comboBulan.setItemText(11, _translate("MainWindow", "Desember"))
-        self.comboPerpus_2.setCurrentText(_translate("MainWindow", "Perpustakaan Bersama"))
-        self.comboPerpus_2.setItemText(0, _translate("MainWindow", "Perpustakaan Bersama"))
-        self.comboPerpus_2.setItemText(1, _translate("MainWindow", "Perpustakaan Jurusan"))
-        self.comboTahun_2.setCurrentText(_translate("MainWindow", "2017"))
-        self.comboTahun_2.setItemText(0, _translate("MainWindow", "2017"))
-        self.comboTahun_2.setItemText(1, _translate("MainWindow", "2018"))
-        self.comboTahun_2.setItemText(2, _translate("MainWindow", "2019"))
+        # self.comboBulan.setCurrentText(_translate("MainWindow", "Januari"))
+        # self.comboBulan.setItemText(0, _translate("MainWindow", "Januari"))
+        # self.comboBulan.setItemText(1, _translate("MainWindow", "Februari"))
+        # self.comboBulan.setItemText(2, _translate("MainWindow", "Maret"))
+        # self.comboBulan.setItemText(3, _translate("MainWindow", "April"))
+        # self.comboBulan.setItemText(4, _translate("MainWindow", "Mei"))
+        # self.comboBulan.setItemText(5, _translate("MainWindow", "Juni"))
+        # self.comboBulan.setItemText(6, _translate("MainWindow", "Juli"))
+        # self.comboBulan.setItemText(7, _translate("MainWindow", "Agustus"))
+        # self.comboBulan.setItemText(8, _translate("MainWindow", "September"))
+        # self.comboBulan.setItemText(9, _translate("MainWindow", "Oktober"))
+        # self.comboBulan.setItemText(10, _translate("MainWindow", "November"))
+        # self.comboBulan.setItemText(11, _translate("MainWindow", "Desember"))
+        # self.comboPerpus_2.setCurrentText(_translate("MainWindow", "Perpustakaan Bersama"))
+        # self.comboPerpus_2.setItemText(0, _translate("MainWindow", "Perpustakaan Bersama"))
+        # self.comboPerpus_2.setItemText(1, _translate("MainWindow", "Perpustakaan Jurusan"))
+        # self.comboTahun_2.setCurrentText(_translate("MainWindow", "2017"))
+        # self.comboTahun_2.setItemText(0, _translate("MainWindow", "2017"))
+        # self.comboTahun_2.setItemText(1, _translate("MainWindow", "2018"))
+        # self.comboTahun_2.setItemText(2, _translate("MainWindow", "2019"))
         __sortingEnabled = self.tableWidget_4.isSortingEnabled()
         self.tableWidget_4.setSortingEnabled(False)
         self.tableWidget_4.setSortingEnabled(__sortingEnabled)
@@ -520,6 +521,8 @@ class Ui_MainWindow(object):
         self.buttonRefresh.clicked.connect(self.refreshData)
         self.buttonLoad_2.clicked.connect(self.selectDataBulan)
         self.buttonResetWH.clicked.connect(self.resetWarehouse)
+        self.buttonExcel_1.clicked.connect(self.writeExcelTahun)
+        self.buttonExcel_2.clicked.connect(self.writeExcelBulan)
 
     def loadData(self):
         result = self.queries_etl.mysql_db_etl(show_data_tabel_etl)
@@ -551,8 +554,9 @@ class Ui_MainWindow(object):
         self.comboTahun.clear()
         self.comboTahun_2.clear()
         result = self.queries_etl.mysql_db_etl(mysql_combobox_tahun)
-        # print(result)
+
         for i in range(0, len(result)):
+            print(result[i][0])
             self.comboTahun.addItem(result[i][0])
             self.comboTahun_2.addItem(result[i][0])
 
@@ -933,6 +937,159 @@ class Ui_MainWindow(object):
     def resetWarehouse(self):
         self.queries_etl.resetWarehouse()
         self.loadData()
+
+    def writeExcelTahun(self):
+        value_tahun = self.comboTahun.currentText()
+        value_perpus = self.comboPerpus.currentText()
+        filepath = "/Warehouse_tahun.xlsx"
+
+        print("creating excel")
+        row_data = 0
+        try:
+            get = load_workbook(filepath)
+            row_data = 2
+        except FileNotFoundError:
+            wb = Workbook()
+            wb.save(filepath)
+            get = load_workbook(filepath)
+
+        sheet = get.active
+        row_data += sheet.max_row
+
+        sheet.cell(row=row_data, column=1).value = "Perpustakaan :"
+        sheet.cell(row=row_data, column=2).value = value_perpus
+        sheet.cell(row=row_data, column=4).value = "Tahun :"
+        sheet.cell(row=row_data, column=5).value = value_tahun
+
+        # row_data += 1
+        sheet.cell(row=row_data+2, column=1).value = "Data Member"
+
+        print("cekpoint 1")
+
+        model_horizontal = self.tableWidget_6.horizontalHeader().model()
+        for i in range(model_horizontal.columnCount()):
+            text = model_horizontal.headerData(i, QtCore.Qt.Horizontal)
+            sheet.cell(row=row_data+3, column=i + 2).value = text
+
+        model_vertikal = self.tableWidget_6.verticalHeader().model()
+        for i in range(model_vertikal.rowCount()):
+            text = model_vertikal.headerData(i, QtCore.Qt.Vertical)
+            sheet.cell(row=i + row_data + 4, column=1).value = text
+
+        for i in range(self.tableWidget_6.columnCount()):
+            for j in range(self.tableWidget_6.rowCount()):
+                try:
+                    text = int(self.tableWidget_6.item(j, i).text())
+                    sheet.cell(row=j+row_data+4, column=i+2).value = text
+                except AttributeError:
+                    print("error")
+
+        last_row = sheet.max_row
+        last_row += 2
+        sheet.cell(row=last_row+1, column=1).value = "Data Buku"
+
+        print("cekpoint 1")
+
+        model_horizontal = self.tableWidget_7.horizontalHeader().model()
+        for i in range(model_horizontal.columnCount()):
+            text = model_horizontal.headerData(i, QtCore.Qt.Horizontal)
+            sheet.cell(row=last_row + 2, column=i + 2).value = text
+
+        model_vertikal = self.tableWidget_7.verticalHeader().model()
+        for i in range(model_vertikal.rowCount()):
+            text = model_vertikal.headerData(i, QtCore.Qt.Vertical)
+            sheet.cell(row=i + last_row + 3, column=1).value = text
+
+        for i in range(self.tableWidget_7.columnCount()):
+            for j in range(self.tableWidget_7.rowCount()):
+                try:
+                    text = int(self.tableWidget_7.item(j, i).text())
+                    sheet.cell(row=j + last_row + 3, column=i + 2).value = text
+                except AttributeError:
+                    print("error")
+
+        print("cek")
+        #save file
+        get.save(filepath)
+        print("success creating excel")
+
+    def writeExcelBulan(self):
+        value_tahun = self.comboTahun_2.currentText()
+        value_perpus = self.comboPerpus_2.currentText()
+        value_bulan = self.comboBulan.currentText()
+        filepath = "/Warehouse_bulan.xlsx"
+
+        print("creating excel")
+        row_data = 0
+        try:
+            get = load_workbook(filepath)
+            row_data = 2
+        except FileNotFoundError:
+            wb = Workbook()
+            wb.save(filepath)
+            get = load_workbook(filepath)
+
+        sheet = get.active
+        row_data += sheet.max_row
+
+        sheet.cell(row=row_data, column=1).value = "Perpustakaan :"
+        sheet.cell(row=row_data, column=2).value = value_perpus
+        sheet.cell(row=row_data, column=4).value = "Tahun :"
+        sheet.cell(row=row_data, column=5).value = value_tahun
+        sheet.cell(row=row_data, column=7).value = "Bulan :"
+        sheet.cell(row=row_data, column=8).value = value_bulan
+
+        # row_data += 1
+        sheet.cell(row=row_data + 2, column=1).value = "Data Member"
+
+        print("cekpoint 1")
+
+        model_horizontal = self.tableWidget_4.horizontalHeader().model()
+        for i in range(model_horizontal.columnCount()):
+            text = model_horizontal.headerData(i, QtCore.Qt.Horizontal)
+            sheet.cell(row=row_data + 3, column=i + 2).value = text
+
+        model_vertikal = self.tableWidget_4.verticalHeader().model()
+        for i in range(model_vertikal.rowCount()):
+            text = model_vertikal.headerData(i, QtCore.Qt.Vertical)
+            sheet.cell(row=i + row_data + 4, column=1).value = text
+
+        for i in range(self.tableWidget_4.columnCount()):
+            for j in range(self.tableWidget_4.rowCount()):
+                try:
+                    text = int(self.tableWidget_4.item(j, i).text())
+                    sheet.cell(row=j + row_data + 4, column=i + 2).value = text
+                except AttributeError:
+                    print("error")
+
+        last_row = sheet.max_row
+        last_row += 2
+        sheet.cell(row=last_row+1, column=1).value = "Data Buku"
+
+        print("cekpoint 1")
+
+        model_horizontal = self.tableWidget_5.horizontalHeader().model()
+        for i in range(model_horizontal.columnCount()):
+            text = model_horizontal.headerData(i, QtCore.Qt.Horizontal)
+            sheet.cell(row=last_row + 2, column=i + 2).value = text
+
+        model_vertikal = self.tableWidget_5.verticalHeader().model()
+        for i in range(model_vertikal.rowCount()):
+            text = model_vertikal.headerData(i, QtCore.Qt.Vertical)
+            sheet.cell(row=i + last_row + 3, column=1).value = text
+
+        for i in range(self.tableWidget_5.columnCount()):
+            for j in range(self.tableWidget_5.rowCount()):
+                try:
+                    text = int(self.tableWidget_5.item(j, i).text())
+                    sheet.cell(row=j + last_row + 3, column=i + 2).value = text
+                except AttributeError:
+                    print("error")
+
+        print("cek")
+        # save file
+        get.save(filepath)
+        print("success creating excel")
 
 import book_rc
 if __name__ == "__main__":
