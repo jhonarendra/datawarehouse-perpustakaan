@@ -36,7 +36,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="icon">
@@ -379,7 +379,7 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>750</y>
+        <y>670</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -409,7 +409,7 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>670</y>
+        <y>590</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -612,8 +612,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>1121</width>
-          <height>591</height>
+          <width>941</width>
+          <height>661</height>
          </rect>
         </property>
         <property name="font">
@@ -645,6 +645,36 @@
        </widget>
       </widget>
      </widget>
+     <widget class="QPushButton" name="buttonExcel_1">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>750</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Export Excel</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normalon>:/excel/icon-excel</normalon>
+       </iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tabBulan">
      <attribute name="icon">
@@ -659,7 +689,7 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>670</y>
+        <y>590</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -941,7 +971,7 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>750</y>
+        <y>670</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -1101,6 +1131,36 @@
       </property>
       <property name="scaledContents">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonExcel_2">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>750</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Export Excel</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normalon>:/excel/icon-excel</normalon>
+       </iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
       </property>
      </widget>
     </widget>
