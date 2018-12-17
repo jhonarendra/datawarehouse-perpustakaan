@@ -540,9 +540,10 @@ class Ui_MainWindow(object):
 
     def comboboxBulan(self):
         self.comboBulan.clear()
-        result = self.queries_etl.mysql_db_etl(mysql_combobox_bulan)
+        # result = self.queries_etl.mysql_db_etl(mysql_combobox_bulan)
+        result = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         for i in range(0, len(result)):
-            self.comboBulan.addItem(result[i][0])
+            self.comboBulan.addItem(result[i])
 
     def resetData(self):
         # query_row = ("SELECT nama_member FROM fact_peminjaman_bulan INNER JOIN dim_member ON fact_peminjaman_bulan.`id_dimMember`=dim_member.`id` GROUP BY nama_member")
